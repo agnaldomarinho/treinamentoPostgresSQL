@@ -1,7 +1,7 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Beamer Presentation
-% LaTeX Template
-% Version 1.0 (10/11/12)
+% CTIC Template
+% Version 1.0 (20/00/15)
 %
 % This template has been downloaded from:
 % http://www.LaTeXTemplates.com
@@ -9,11 +9,8 @@
 % License:
 % CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
 %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%----------------------------------------------------------------------------------------
-%	PACKAGES AND THEMES
-%----------------------------------------------------------------------------------------
 
 \documentclass{beamer}
 
@@ -32,7 +29,7 @@
 %\usetheme{Boadilla}
 %\usetheme{CambridgeUS}
 %\usetheme{Copenhagen}
-%\usetheme{Darmstadt}
+\usetheme{Darmstadt}
 %\usetheme{Dresden}
 %\usetheme{Frankfurt}
 %\usetheme{Goettingen}
@@ -40,7 +37,7 @@
 %\usetheme{Ilmenau}
 %\usetheme{JuanLesPins}
 %\usetheme{Luebeck}
-\usetheme{Madrid}
+%\usetheme{Madrid}
 %\usetheme{Malmoe}
 %\usetheme{Marburg}
 %\usetheme{Montpellier}
@@ -56,7 +53,7 @@
 % changes the colors of your current slide theme.
 
 %\usecolortheme{albatross}
-%\usecolortheme{beaver}
+\usecolortheme{beaver}
 %\usecolortheme{beetle}
 %\usecolortheme{crane}
 %\usecolortheme{dolphin}
@@ -79,19 +76,26 @@
 \usepackage{graphicx} % Allows including images
 \usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
 
+% Acentos em portugues
+\usepackage[brazilian,english]{babel}
+%\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+
 %----------------------------------------------------------------------------------------
-%	TITLE PAGE
+%   TITLE PAGE
 %----------------------------------------------------------------------------------------
 
-\title[Short title]{Full Title of the Talk} % The short title appears at the bottom of every slide, the full title is only on the title page
+\title[Short title]{Treinamento PostgreSQL} % The short title appears at the bottom of every slide, the full title is only on the title page
 
-\author{John Smith} % Your name
-\institute[UCLA] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
+\author{Agnaldo Marinho} % Your name
+\institute[CTIC] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
 {
-University of California \\ % Your institution for the title page
+Centro de Tecnologia e Comunica\c{c}\~ao - CTIC \\ % Your institution for the title page
 \medskip
-\textit{john@smith.com} % Your email address
+\textit{agnaldoneto@ufpa.br} % Your email address
 }
+
+
 \date{\today} % Date, can be changed to a custom date
 
 \begin{document}
@@ -101,47 +105,59 @@ University of California \\ % Your institution for the title page
 \end{frame}
 
 \begin{frame}
-\frametitle{Overview} % Table of contents slide, comment this block out to remove it
+\frametitle{Sum\'ario} % Table of contents slide, comment this block out to remove it
 \tableofcontents % Throughout your presentation, if you choose to use \section{} and \subsection{} commands, these will automatically be printed on this slide as an overview of your presentation
 \end{frame}
 
+
 %----------------------------------------------------------------------------------------
-%	PRESENTATION SLIDES
+%PRESENTATION SLIDES
 %----------------------------------------------------------------------------------------
 
 %------------------------------------------------
-\section{First Section} % Sections can be created in order to organize your presentation into discrete blocks, all sections and subsections are automatically printed in the table of contents as an overview of the talk
+\section{Introdu\c{c}\~ao ao PostgreSQL} % Sections can be created in order to organize your presentation into discrete blocks, all sections and subsections are automatically printed in the table of contents as an overview of the talk
 %------------------------------------------------
 
-\subsection{Subsection Example} % A subsection can be created just before a set of slides with a common theme to further break down your presentation into chunks
+\subsection{O que \'e o PostgreSQL ?} % A subsection can be created just before a set of slides with a common theme to further break down your presentation into chunks
 
 \begin{frame}
-\frametitle{Paragraphs of Text}
-Sed iaculis dapibus gravida. Morbi sed tortor erat, nec interdum arcu. Sed id lorem lectus. Quisque viverra augue id sem ornare non aliquam nibh tristique. Aenean in ligula nisl. Nulla sed tellus ipsum. Donec vestibulum ligula non lorem vulputate fermentum accumsan neque mollis.\\~\\
-
-Sed diam enim, sagittis nec condimentum sit amet, ullamcorper sit amet libero. Aliquam vel dui orci, a porta odio. Nullam id suscipit ipsum. Aenean lobortis commodo sem, ut commodo leo gravida vitae. Pellentesque vehicula ante iaculis arcu pretium rutrum eget sit amet purus. Integer ornare nulla quis neque ultrices lobortis. Vestibulum ultrices tincidunt libero, quis commodo erat ullamcorper id.
-\end{frame}
-
-%------------------------------------------------
-
-\begin{frame}
-\frametitle{Bullet Points}
+\frametitle{O que \'e o PostegreSQL ?}
 \begin{itemize}
-\item Lorem ipsum dolor sit amet, consectetur adipiscing elit
-\item Aliquam blandit faucibus nisi, sit amet dapibus enim tempus eu
-\item Nulla commodo, erat quis gravida posuere, elit lacus lobortis est, quis porttitor odio mauris at libero
-\item Nam cursus est eget velit posuere pellentesque
-\item Vestibulum faucibus velit a augue condimentum quis convallis nulla gravida
+\item O PostgreSQL é um dos bancos de dados abertos mais utilizados atualmente, possui recursos avan\c{c}ados e compete igualmente com muitos bancos de dados comerciais.
+\item O banco de dados PostgreSQL nasceu na Universidade de Berkeley.
+\item A coordena\c{c}\~ao de desenvolvimento do PostegreSQL é executado pelo \textit{PostgreSQL Global Development Group}.
+
 \end{itemize}
 \end{frame}
 
+
+%------------------------------------------------
+\subsection{Principais Funcionalidades}
+\begin{frame}
+\frametitle{Principais Funcionalidades}
+\begin{itemize}
+\item Banco de dados objeto-relacional
+    \\ $-{}$ Herança entre as tabelas
+    \\ $-{}$ Sobrecarga de fun\c{c}\~oes
+    \\ $-{}$ Colunas do tipo array
+\item Acesso via drivers ODBC e JDBC, alem do suporte nativo em várias linguagens.
+\item Interface gr\'afica de gerenciamento
+\item Mecanismo de rede
+\end{itemize}
+\end{frame}
+
+
 %------------------------------------------------
 
+\section{Entendo um Banco de Dados}
+\subsection{Bancos de Dados Relacionais}
 \begin{frame}
-\frametitle{Blocks of Highlighted Text}
-\begin{block}{Block 1}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lectus nisl, ultricies in feugiat rutrum, porttitor sit amet augue. Aliquam ut tortor mauris. Sed volutpat ante purus, quis accumsan dolor.
-\end{block}
+\frametitle{Bancos de Dados Relacionais}
+\begin{itemize}
+    \item O modelo relacional surgiu devio as seguintes necessidades:
+    \\ $-{}$ Aumenta a independ\^encia de dados nos sistemas gerenciadores de banco de dados;
+    \\ $-{}$ Prover um conjunto de fun\c{c}\~oes apoiadas em \'algebra relacional para amarzenamento e recupera\c{c}\~ao de dados;
+\end{itemize}
 
 \begin{block}{Block 2}
 Pellentesque sed tellus purus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum quis magna at risus dictum tempor eu vitae velit.
@@ -151,6 +167,7 @@ Pellentesque sed tellus purus. Class aptent taciti sociosqu ad litora torquent p
 Suspendisse tincidunt sagittis gravida. Curabitur condimentum, enim sed venenatis rutrum, ipsum neque consectetur orci, sed blandit justo nisi ac lacus.
 \end{block}
 \end{frame}
+
 
 %------------------------------------------------
 
@@ -163,14 +180,16 @@ Suspendisse tincidunt sagittis gravida. Curabitur condimentum, enim sed venenati
 \begin{enumerate}
 \item Statement
 \item Explanation
-\item Example
+\item Exampl
 \end{enumerate}
+
 
 \column{.5\textwidth} % Right column and width
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lectus nisl, ultricies in feugiat rutrum, porttitor sit amet augue. Aliquam ut tortor mauris. Sed volutpat ante purus, quis accumsan dolor.
 
 \end{columns}
 \end{frame}
+
 
 %------------------------------------------------
 \section{Second Section}
@@ -192,6 +211,7 @@ Treatment 3 & 0.0009271 & 0.296 \\
 \end{table}
 \end{frame}
 
+
 %------------------------------------------------
 
 \begin{frame}
@@ -200,6 +220,7 @@ Treatment 3 & 0.0009271 & 0.296 \\
 $E = mc^2$
 \end{theorem}
 \end{frame}
+
 
 %------------------------------------------------
 
@@ -215,6 +236,7 @@ $E = mc^2$
 \end{frame}\end{verbatim}
 \end{example}
 \end{frame}
+
 
 %------------------------------------------------
 
@@ -254,6 +276,8 @@ This statement requires citation \cite{p1}.
 \Huge{\centerline{The End}}
 \end{frame}
 
+
+
 %----------------------------------------------------------------------------------------
 
-\end{document} 
+\end{document}
