@@ -1,0 +1,30 @@
+\select@language {brazil}
+\contentsline {chapter}{Sum\'ario}{2}
+\contentsline {chapter}{\numberline {1}Cap\begingroup \let \relax \relax \endgroup [Pleaseinsert\PrerenderUnicode {í}intopreamble]tulos: Chapters.lst}{4}
+\contentsline {section}{\numberline {1.1}Sintaxe do 'Chapters.lst'}{4}
+\contentsline {chapter}{\numberline {2}Caracteres Reservados}{5}
+\contentsline {chapter}{\numberline {3}Dividindo o texto em Cap\IeC {\'\i }tulos}{6}
+\contentsline {chapter}{\numberline {4}Inserir Comandos / Linhas de C\IeC {\'o}digo}{7}
+\contentsline {chapter}{\numberline {5}Negrito / It\IeC {\'a}lico / Sublinhado}{8}
+\contentsline {chapter}{\numberline {6}Listas e Listas Numeradas}{9}
+\contentsline {section}{\numberline {6.1}Listas n\IeC {\~a}o numeradas}{9}
+\contentsline {section}{\numberline {6.2}Listas Numeradas}{9}
+\contentsline {chapter}{\numberline {7}Step}{11}
+\contentsline {section}{\numberline {7.1}Step 2}{11}
+\contentsline {chapter}{\numberline {8}Citando tabelas, figuras ou cap\IeC {\'\i }tulos}{12}
+\contentsline {chapter}{\numberline {9}Inserindo Figuras}{13}
+\contentsline {chapter}{\numberline {10}Construindo tabelas}{15}
+\contentsline {chapter}{\numberline {11}Express\IeC {\~o}es Matem\IeC {\'a}ticas e Equa\IeC {\c c}\IeC {\~o}es}{16}
+\contentsline {chapter}{\numberline {12}Quebra de p\IeC {\'a}gina}{17}
+\contentsline {chapter}{\numberline {13}Adicionando Bibliografia}{18}
+\contentsline {chapter}{Refer\^encias Bibliogr\'aficas}{19}
+\contentsline {chapter}{\numberline {A}Rela\IeC {\c c}\IeC {\~a}o de Tags}{20}
+\contentsline {section}{\numberline {A.1}Cap\IeC {\'\i }tulos e subse\IeC {\c c}\IeC {\~o}es}{20}
+\contentsline {section}{\numberline {A.2}Comandos e linhas de c\IeC {\'o}digo}{20}
+\contentsline {section}{\numberline {A.3}Negrito e it\IeC {\'a}lico}{20}
+\contentsline {section}{\numberline {A.4}Listas}{20}
+\contentsline {section}{\numberline {A.5}Nomes e refer\IeC {\^e}ncias}{20}
+\contentsline {section}{\numberline {A.6}Tabelas}{21}
+\contentsline {section}{\numberline {A.7}Figuras}{21}
+\contentsline {section}{\numberline {A.8}Ambiente Matem\IeC {\'a}tico}{21}
+\contentsline {section}{\numberline {A.9}Quebras de P\IeC {\'a}gina}{21}

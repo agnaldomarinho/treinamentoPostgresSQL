@@ -1,0 +1,76 @@
+\newpage \chapter{Listas e Listas Numeradas}\setcounter{SteP}{1}
+\label{sec:listas}
+
+\section{Listas não numeradas}\setcounter{SteP}{1}
+
+Uma forma comum de apresentar tópicos de um determinado assunto é através de
+de listas. Há basicamente dois tipos de listas as que apenas destacam cada item
+e aquelas que numeram os itens.
+
+Para criar uma lista simples, sem numeração, procedemos da seguinte forma:
+
+\begin{BoxVerbatim}
+    <lista>
+        <item>propriedade 1</item> este item tem como título o trecho 
+            entre as tags com a palavra 'item', ou seja 'propriendade 1';
+        <item>propriedade 2</item> note que o título desse item é 
+            'propriedade 2' e que na frente de todo os itens há uma 
+            bolinha preta afim de dar um destaque;
+        <item>propriedade 3</item> vale ressaltar que o título de cada
+            item, ou seja, propriedade 1, 2 e 3, serão destacados do resto 
+            do texto pois ficarão em negrito automaticamente.
+    </lista>
+\end{BoxVerbatim}
+
+O efeito do trecho de código acima será o seguinte:
+
+\begin{itemize}
+	\item{\bf propriedade 1} este item tem como título o trecho entre as tags
+							com a palavra 'item', ou seja 'propriendade 1';
+	\item{\bf propriedade 2} note que o título desse item é 'propriedade 2' e
+							que na frente de todo os itens há uma bolinha
+							preta afim de dar um destaque;
+	\item{\bf propriedade 3} vale ressaltar que o título de cada item, ou
+							seja, propriedade 1, 2 e 3, serão destacados do
+							resto do texto pois ficarão em negrito
+							automaticamente.
+\end{itemize}
+
+A lista acima apenas apresenta os itens. Se desejarmos enumerar cada item, basta
+alterar a {\it tag} inicial de 'lista' para 'enumerar' como mostrado a
+seguir:
+
+\section{Listas Numeradas}\setcounter{SteP}{1}
+
+\begin{BoxVerbatim}
+    <enumerar>
+        <item>propriedade</item> este item tem como título o trecho entre
+            as tags com a palavra 'item', ou seja 'propriendade';
+        <item>propriedade</item> note que o título desse item também é 
+            'propriedade' e que na frente de todo os itens há agora uma 
+            numeração de acordo com a ordem de entrada dos itens;
+        <item>propriedade</item> vale ressaltar que o título de cada item, 
+            ou seja, propriedade 1, 2 e 3, serão destacados do resto do 
+            texto pois ficarão em negrito automaticamente.
+    </enumerar>
+\end{BoxVerbatim}
+
+O resultado do texto acima é o seguinte:
+
+\begin{enumerate}
+	\item{\bf propriedade} este item tem como título o trecho entre as tags
+							com a palavra 'item', ou seja 'propriendade';
+	\item{\bf propriedade} note que o título desse item também é
+							'propriedade' e que na frente de todo os itens há
+							agora uma numeração de acordo com a ordem de
+							entrada dos itens;
+	\item{\bf propriedade} vale ressaltar que o título de cada item, ou
+							seja, propriedade 1, 2 e 3, serão destacados do
+							resto do texto pois ficarão em negrito
+							automaticamente.
+\end{enumerate}
+
+
+Sendo assim, a forma de trabalhar com listas é a mesma, não importa se é uma
+lista numerada ou não. A única diferença entre elas é a {\it tag} principal,
+ou seja 'lista' ou 'enumerar'.

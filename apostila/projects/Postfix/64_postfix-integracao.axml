@@ -1,0 +1,218 @@
+<capitulo>Postfix: integrações</capitulo>
+
+    Após a instalação do Postfix, funcionalidades essenciais estão
+disponíveis, e alguns recursos devem ser ativados, como:
+
+<lista>
+<item/> suporte a autenticação e integração ao saslauthd;
+<item/> consulta a base LDAP para validação de endereços de e-mails;
+<item/> encaminhamento da mensagem ao servidor de armazenamento de mensagens;
+<item/> suporte a comunicação segura através de TLS e SSL;
+</lista>
+
+<subsecao>Integração com Saslauthd</subsecao>
+
+    A integração com o <i>saslauthd</i> é necessária para o suporte ao comando
+AUTH do protocolo SMTP. A autenticação é o recursos comumente utilizado para
+determinar quais endereços de destinatários são aceitos. Assim, para conexões
+autenticadas todo destinatário é permitido, e para conexões
+não-autenticadas, somente destinatários de domínios locais são permitidos.
+Para ativar a autenticação, realize as seguintes configurações:
+
+<lista>
+<item/><b>/etc/postfix/main.cf</b>
+</lista>
+
+<comandoNumerado>
+## SASL ##
+smtpd_sasl_auth_enable = yes
+broken_sasl_auth_clients = yes
+</comandoNumerado>
+
+<lista>
+<item/><b>/etc/postfix/sasl/smtpd.conf</b>: especificação dos métodos de autenticação.
+</lista>
+
+<comando>
+pwcheck_method: saslauthd
+mech_list: PLAIN LOGIN
+</comando>
+	
+    A comunicação com o <i>saslauthd</i> dá-se através do socket
+<i>/var/run/saslauthd/mux</i> interno a jaula, e que possui permissão padrão
+de acesso somente para os membros do grupo <i>sasl</i>, assim, utilize o
+comando:
+
+<comando>
+    # adduser postfix sasl
+</comando>
+
+    Após realizadas as configurações indicadas, faz-se necessário reiniciar o
+Postfix para que as novas configurações sejam utilizadas. 
+
+<comando>
+    # invoke-rc.d postfix restart
+</comando>
+
+<subsubsecao>Método de Autenticação PLAIN</subsubsecao>
+
+<comando>
+$ perl -MMIME::Base64 -e 'print encode_base64("\000rei\@exemplo.com.br\000senha");'
+AHJlaUA0bGludXguY29tLmJyAHNlbmhh
+</comando>
+
+<comandoNumerado>
+	  $ nc 127.0.0.1 25
+S:	220 exemplo.com.br ESMTP Example
+C:	HELO exemplo.com.br
+S:	250 exemplo.com.br
+C:	AUTH PLAIN AHJlaUA0bGludXguY29tLmJyAHNlbmhh
+S:	235 2.0.0 Authentication successful
+</comandoNumerado>
+
+<subsubsecao>Método de Autenticação LOGIN</subsubsecao>
+
+<comando>
+$ perl -MMIME::Base64 -e 'print encode_base64("rei\@exemplo.com.br")'
+cmVpQDRsaW51eC5jb20uYnI=
+$ perl -MMIME::Base64 -e 'print encode_base64("senha")'
+c2VuaGE=
+</comando>
+
+<comandoNumerado>
+	  $ nc 127.0.0.1 25
+S:	220 exemplo.com.br ESMTP Example
+C:	HELO exemplo.com.br
+S:	250 exemplo.com.br
+C:	AUTH LOGIN
+S:	334 VXNlcm5hbWU6
+C:	cmVpQDRsaW51eC5jb20uYnI=
+S:	334 UGFzc3dvcmQ6
+C:	c2VuaGE=
+S:	235 2.0.0 Authentication successful
+</comandoNumerado>
+
+<subsecao>Integração com OpenLdap</subsecao>
+
+	A integração com a base de usuários é essencial para que emails para
+usuários inexistente sejam rejeitados em tempo de recebimento <i>RCPT
+TO</i>. Para isto, deve-se realizar a configuração abaixo e referenciando a
+lista de domínios que devem ser consultadas nesta base.
+
+<lista>
+<item/><b>/etc/postfix/main.cf</b>
+</lista>
+
+<comandoNumerado>
+## LDAP ##
+mydestination = hash:/etc/postfix/ldap-domains
+virtual_alias_maps = ldap:ldapconn
+ldapconn_domain = hash:/etc/postfix/ldap-domains
+ldapconn_bind = no
+ldapconn_server_host = 127.0.0.1
+ldapconn_version = 3
+ldapconn_search_base = o=Example
+ldapconn_query_filter = (|(mail=%s)(mailAlternateAddress=%s))
+ldapconn_result_attribute = mail
+</comandoNumerado>
+
+<lista>
+<item/><b>/etc/postfix/ldap-domains</b>
+</lista>
+
+<comando>
+exemplo.com.br          comment
+example.com             another domain
+example.org             employer domain
+</comando>
+
+	A utilização do módulo hash depende da compilação do arquivo, conforme
+indicado:
+
+<comando>
+    # postmap /etc/postfix/ldap-domains
+</comando>
+
+    O postfix deve ser reiniciado para utilizar as novas configurações:
+
+<comando>
+    # invoke-rc.d postfix restart
+</comando>
+
+<subsecao>Integração com Cyrus</subsecao>
+
+    A integração com Cyrus será realizada através de LMTP conforme
+indicado. A especificação de endereços dos servidores IMAP são realizadas
+no arquivo /etc/postfix/ldap-domains, conforme indicado:
+
+<lista>
+<item/><b>/etc/postfix/main.cf</b>
+</lista>
+
+<comando>
+## CYRUS ##
+transport_maps = hash:/etc/postfix/ldap-domains
+</comando>
+
+<lista>
+<item/><b>/etc/postfix/ldap-domains</b>
+</lista>
+
+<comando>
+exemplo.com.br           lmtp:inet:[192.168.0.1]:24
+example.com              lmtp:inet:[192.168.0.2]:24
+example.org              lmtp:inet:[192.168.0.3]:24
+</comando>
+
+	Em seguida execute o comando abaixo:
+
+<comando>
+    # postmap /etc/postfix/ldap-domains
+</comando>
+	
+	Reinicie os aplicativos fazendo um teste de envio e recebimento de mensagem.
+
+<comando>
+    # invoke-rc.d postfix restart
+</comando>
+
+<subsecao>Criptografia</subsecao>
+
+<subsubsecao>Ativando TLS</subsubsecao>
+
+<lista>
+<item/><b>/etc/postfix/main.cf</b>
+</lista>
+
+<comando>
+smtpd_tls_cert_file = /etc/ssl/hostname.cer
+smtpd_tls_key_file = /etc/ssl/hostname.key
+smtpd_tls_security_level = may
+smtpd_tls_received_header = yes
+</comando>
+
+<subsubsecao>Ativando SSL</subsubsecao>
+
+<lista>
+<item/><b>/etc/postfix/master.cf</b>
+</lista>
+
+<comandoNumerado>
+# ==========================================================================
+# service type  private unpriv  chroot  wakeup  maxproc command + args
+#               (yes)   (yes)   (yes)   (never) (100)
+# ==========================================================================
+smtp        inet n       -       -       -       -       smtpd
+  -o smtpd_sasl_auth_enable=no
+submission  inet n       -       -       -       -       smtpd
+  -o smtpd_tls_security_level=encrypt
+  -o smtpd_sasl_auth_enable=yes
+smtps       inet n       -       -       -       -       smtpd
+  -o smtpd_tls_wrappermode=yes
+  -o smtpd_sasl_auth_enable=yes
+</comandoNumerado>
+
+    Além da ativação do suporte a portas SSL, é recomendado que a
+autenticação seja permitida somente através de conexoes criptografadas.
+Assim, opção de ativação de autenticação será explícita por serviço
+<i>smtpd</i>, podendo ser removida do <i>/etc/postfix/main.cf</i>.

@@ -1,0 +1,61 @@
+\newpage \chapter{Inserindo Figuras}\setcounter{SteP}{1}
+\label{sec:figuras}
+
+A inserção de figuras ao documento é bastante simples. O autor deverá
+especificar alguns parâmetros da figura, como o nome do arquivo, legenda e
+tamanho que o processador posicionará e atribuirá um número à figura
+automaticamente. 
+
+Outro atributo importante é o 'nome' da figura pois, com ele será
+possível fazer referências a ela por intermédio da {\it tag} 'ref'. A sintaxe
+básica para a inserção de uma figura é a seguinte:
+
+\begin{BoxVerbatim}
+    <figura>
+        <tamanho>0.2</tamanho>
+        <arquivo>imgs/nuclear_marvin</arquivo>
+        <legenda>Legenda da figura</legenda>
+        <nome>fig:marvin</nome>
+    </figura>
+\end{BoxVerbatim}
+
+A imagem que será inclusa pode ser vista na fig.~\ref{fig:marvin}.
+
+\begin{figure}[H]\begin{center}
+    \includegraphics[width=0.2\columnwidth]
+    {imgs/nuclear_marvin}
+    \caption{Legenda da figura}
+    \label{fig:marvin}
+\end{center}\end{figure}
+
+
+O significado de cada atributo está especificado na lista a seguir:
+
+\begin{enumerate}
+	\item{\bf tamanho} este atributo especifica a largura da figura em
+	relação à largura da página. Os valores válidos para o tamanho de uma
+	figura são os compreendidos na faixa de 0 a 1. Dessa forma, podemos
+	considerar que o tamanho será entre 0 e 100\% da largura da folha. 
+	Com isso, especificando uma figura cujo tamanho é 0.6, estaremos definindo 
+	que a largura dessa figura será 60\% do tamanho da largura da página;
+
+	\item{\bf legenda} este atributo define a legenda da figura. Deve ser um
+	texto breve explicando o significado da figura.
+
+	\item{\bf arquivo} neste atributo está especificado o nome da figura e
+	seu path. Note que todas as figuras {\bf devem} estar no diretório 'imgs'
+	dentro do diretório 'Apostila' (\~{}/apostilator/Apostila/imgs). Entretanto,
+	o parâmetro a ser passado para a {\it tag} 'arquivo' é apenas
+	'imgs/nome\_figura'. Não é necessário especificar o formato da figura.
+	
+	\item{\bf nome} a {\it tag} 'nome' é a responsável por atribuir um
+	apelido para a figura tornando possível referenciá-la através da tag 'ref'
+	(veja sec.~\ref{sec:referencia})
+
+\end{enumerate}
+
+Todas as figuras serão automaticamente centralizadas na página. Os formatos
+de imagem aceitos pelo processador de texto são: gif, jpg, png dentre outros.
+Só não são aceitos 'ps' e 'eps'.
+
+Note que, no caso de figuras, a ordem das tags {\bf não} pode ser alterada!!
