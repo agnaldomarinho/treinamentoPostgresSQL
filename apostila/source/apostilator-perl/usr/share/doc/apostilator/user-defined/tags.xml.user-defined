@@ -1,9 +1,0 @@
-# Defina aqui suas tags personalisadas.
-# Define here your personalazed tags.
-<lpi>="\lpi{}"
-<lpi/>="\lpi{}"
-<lpi />="\lpi{}"
-</lpi>=""
-<rh>="\rh{}"
-</rh>=""
-
