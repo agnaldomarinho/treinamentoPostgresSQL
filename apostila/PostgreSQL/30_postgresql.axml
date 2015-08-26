@@ -1,0 +1,25 @@
+<capitulo>Introdução ao Postgresql</capitulo>
+
+    O PostgreSQL é um SGBD (Sistema Gerenciador de Banco de
+Dados) objeto relacional de código aberto, com mais de 15 anos
+de desenvolvimento. é extremamente robusto e confiável, além de
+ser extremante flexivel e rico em recursos. Ele é considerado 
+objeto relacional por implementar, além das características de
+um SGBD relacional, algumas características de orientação a
+objetos, como herança e tipos personalizados.
+
+<subsecao>O que é o PostgreSQL?</subsecao>
+
+<lista>
+<item/> O PostgreSQL é um dos bancos de dados abertos mais utilizados
+atualmente, possui recursos avançados e compete igualmente com
+muitos bancos de dados comerciais.
+
+<item/> O banco de dados PostgreSQL nasceu na Universidade de Berkeley,
+em 1986, como um projeto acadêmico e se encontra hoje na versão 9.1, 
+sendo um projeto mantido pela comunidade de <i>Software Livre</i>.
+
+<item/>A coordernação de desenvolvimento do PostgreSQL é executado pelo 
+<i>PostgreSQL Global Development Group</i> que conta com um grande 
+número de desenvolvimento ao redor do mundo.
+</lista>

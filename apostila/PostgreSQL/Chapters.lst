@@ -1,0 +1,8 @@
+10_intro_software.axml
+30_postgresql.axml
+#30_ldap.axml
+#40_openldap-intro.axml
+#50_openldap.axml
+#60_interfaces-ldap.axml
+#65_ldap-pam.axml
+#70_ldap-dhcp.axml
