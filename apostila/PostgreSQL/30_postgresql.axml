@@ -1,4 +1,4 @@
-<capitulo>Introdução ao Postgresql</capitulo>
+:<capitulo>Introdução ao Postgresql</capitulo>
 
     O PostgreSQL é um SGBD (Sistema Gerenciador de Banco de
 Dados) objeto relacional de código aberto, com mais de 15 anos
@@ -22,4 +22,98 @@ sendo um projeto mantido pela comunidade de <i>Software Livre</i>.
 <item/>A coordernação de desenvolvimento do PostgreSQL é executado pelo 
 <i>PostgreSQL Global Development Group</i> que conta com um grande 
 número de desenvolvimento ao redor do mundo.
+
+<item/> Ele é um SGBD muito adequado para o estudo universitário do 
+modelo relacional, além de ser uma ótima opção para empresas 
+implatarem soluções de alta confiabilidade sem altos custos de 
+licenciamento.
+
+<item/> É um programa distribuido sob a licença BSD, o que 
+torna o seu código fonte disponível e o seu uso livre para aplicações
+comercias ou não.
+
+<item/> O PostgreSQL foi implementado em diversos ambientes de produção 
+no mundo, entre eles, um bom exemplo do seu pontencial é o banco de dados
+que armazena os registro de domínio .org, mantido pela empresa
+	Afilias.
 </lista>
+
+<subsecao> Principais Funcionalidades</subsecao>
+
+<lista>
+<item/>Banco de dados objeto-relacional
+
+    - Herança entre as tabelas
+
+    - Sobrecarga de funções
+
+    - Colunas do tipo array
+
+<item/>Suporte a transações (padrão ACID)
+
+<item/>Lock por registro (row level locking)
+
+<item/>Integridade referencial
+
+<item/>Sub-consultas.
+
+<item/>Controle de concorrência multi-versão (MVCC);
+
+<item/>Funções armazenadas (Stored Procedures), que podem ser escritas em várias linguagens de programação (PL/PgSQL, Perl, Python, Ruby, e outras);
+
+<item/>Gatilhos (Triggers);
+
+<item/>Tipos definidos pelo usuário;
+
+<item/>Esquemas (Schemas);
+
+<item/>Conexões SSL.
+
+<item/>Áreas de armazenamento (Tablespaces)
+
+<item/>Pontos de salvamento (Savepoints)
+
+<item/>Commit em duas fases
+
+<item/>Arquivamento e restauração do banco a partir de logs de transação
+
+<item/>Diversas ferramentas de replicação
+
+<item/>Extensões para dados geoespaciais, indexação de textos, xml e várias outras.
+
+<item/>Acesso via drivers ODBC e JDBC, além do suporte nativo em várias linguagens
+
+<item/>Suporte ao armazenamento de BLOBs (binary large objects)
+
+<item/>Sub-queries e queries na cláusula FROM
+
+<item/>Sofisticado mecanismo de tuning
+
+<item/>Suporte a conexão de banco de dados seguras (criptografia)
+
+<item/>Modelo de segurança para o acesso aos objetos do banco de dados por roles
+
+<item/>Triggers views e functions (PL/pgSQL, Perl, Python e Tcl
+
+<item/>Mecanismos próprio de logs
+</lista>
+
+<subsecao>Plataforma Suportadas</subsecao>
+
+<lista>
+<item/>IBM AIX
+<item/>FreeBSD< OpenBSD, NetBSD
+<item/>HP-UX
+<item/>Irix
+<item/>Linux
+<item/>MarcOS X
+<item/>Microsoft Windows (suporte nativo desde a versão 8.0)
+<item/>SCO Open Server
+<item/>Sun Solaris
+<item/>Tru64 Unix
+<item/>Unix Ware
+</lista>
+
+
+<subsecao>Instalação</subsecao>
+

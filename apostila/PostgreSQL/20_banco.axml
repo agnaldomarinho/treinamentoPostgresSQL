@@ -1,0 +1,43 @@
+<capitulo>Entendendo um Banco de Dados</capitulo>
+
+<subsecao>Bancos de Dados Relacionais</subsecao>
+    
+    Um banco de dados é uma aplicação que lhe permite armazenar 
+e obter de volta dados com eficiência. O que o torna <i>relacional</i>
+é a maniera como os dados são armazenados e organizados no
+banco de dados.
+
+    Quando falamos em banco de dados, aqui, nos referimos a um banco de dados
+relacional - RDBMS <i>Relational Database Management System</i>.
+
+    Em um banco de dados relacional, todos os dados são 
+guardados em tabelas. Estas têm uma estrutura que se repete
+a cada linha, como você pode observar um uma planilha.
+São os relacionamento entre as tabelas que as tornam "relacionais"
+
+<lista>
+<item/>O modelo relacional surgiu devido às seguintes necessidades:
+     - Aumentar a independência de dados nos sistemas gerenciadores de bancos de dados;
+
+     - Prover um conjunto de funções apoiadas em álgebra relacional
+para armazenamento e recuperação de dados;
+
+<item/> A estrutura fundamental do modelo relacional é a relação.
+Uma relação é constituída por um ou mais atributos (campos), que 
+traduzem o tipo de dados armazenados. Cada instância do esquema (linha),
+designa-se por tupla (registro).
+     - O modelo implementa estruturas de dados organizados
+em relações (tabelas).
+</lista>
+
+<subsecao>Banco de Dados Objeto-Relacional</subsecao>
+
+<lista>
+<item/>O PostgreSQL é normalmente considerado um sistema gerenciador de 
+banco de dados relacional (SGBD-R, ou RDBMS, em inglês.) Entretanto, 
+o PostgreSQL é um sistema gerenciador de banco de dados objeto-relacional (SGBD-OR).
+
+<item/>Por ser objeto-relacional, o PostgreSQL suporta recursos inexistentes
+a um banco de dados puramente ralacional, tais como: herança entre
+tabelas, arrays em colunas e sobrecarga de funções.
+</lista>
