@@ -1,17 +1,17 @@
 
-### Apostilator is running: Wed Aug 26 13:33:45 2015
+### Apostilator is running: Fri Sep  4 10:52:20 2015
 
 
-### Apostilator::create_symlinks(): Wed Aug 26 13:33:45 2015
+### Apostilator::create_symlinks(): Fri Sep  4 10:52:20 2015
 
 
-### Apostilator::convert_apostila(): Wed Aug 26 13:33:45 2015
+### Apostilator::convert_apostila(): Fri Sep  4 10:52:20 2015
 
 
-### Apostilator::convert_latex2pdf(): Wed Aug 26 13:33:45 2015
+### Apostilator::convert_latex2pdf(): Fri Sep  4 10:52:20 2015
 
 
-### Apostilator::create_bibliography(): Wed Aug 26 13:33:48 2015
+### Apostilator::create_bibliography(): Fri Sep  4 10:52:21 2015
 
 Linux) (preloaded format=pdflatex)
  restricted \write18 enabled.
@@ -131,16 +131,18 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 Cap\'{\i }tulo 2.
 ) (./30_postgresql.tex [6]
 Cap\'{\i }tulo 3.
-[7] [8])) [9]
+[7] [8]) (./40_postgresql-intro.tex [9]
+Cap\'{\i }tulo 4.
+[10] (/usr/share/texmf-dist/tex/latex/ucs/data/uni-1.def))) [11]
 No file base.bbl.
 (./Appendix.tex (./95_concursos.tex
 Ap\^endice A.
 
 Overfull \hbox (8.12175pt too wide) in paragraph at lines 4--4
 []\OT1/cmr/bx/n/17.28 MPU 2010 (CESPE) - ANA-LISTA DE IN-FORM[]ATICA
-) (./98_GFDL_license.tex [10]
+) (./98_GFDL_license.tex [12]
 Ap\^endice B.
-)) [11] (./base.aux)
+)) [13] (./base.aux)
 
 Package rerunfilecheck Warning: File `base.out' has changed.
 (rerunfilecheck)                Rerun to get outlines right
@@ -152,11 +154,12 @@ s/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public
 /amsfonts/cm/cmbxsl10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm
 /cmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></u
 sr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmss17.pfb></usr/share/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12
-.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on base.pdf (11 pages, 147588 bytes).
+dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmss12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmss17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.p
+fb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on base.pdf (13 pages, 162641 bytes).
 Transcript written on base.log.
 This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/Arch Linux) (preloaded format=pdflatex)
  restricted \write18 enabled.
@@ -252,7 +255,7 @@ babelbib: Set language for keywords in the bibliography fixed to brazil
 *geometry* detected driver: pdftex
 (/usr/share/texmf-dist/tex/latex/hyperref/nameref.sty
 (/usr/share/texmf-dist/tex/generic/oberdiek/gettitlestring.sty)) (./base.out)
-(./base.out) (./titlepage.tex <titlepage.png, id=68, 306.14375pt x 120.45pt>
+(./base.out) (./titlepage.tex <titlepage.png, id=80, 306.14375pt x 120.45pt>
 <use titlepage.png> (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd)
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd)
 (/usr/share/texmf-dist/tex/latex/base/ulasy.fd)) [1{/var/lib/texmf/fonts/map/pd
@@ -275,26 +278,29 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 Cap\'{\i }tulo 2.
 ) (./30_postgresql.tex [6]
 Cap\'{\i }tulo 3.
-[7] [8])) [9]
+[7] [8]) (./40_postgresql-intro.tex [9]
+Cap\'{\i }tulo 4.
+[10] (/usr/share/texmf-dist/tex/latex/ucs/data/uni-1.def))) [11]
 No file base.bbl.
 (./Appendix.tex (./95_concursos.tex
 Ap\^endice A.
 
 Overfull \hbox (8.12175pt too wide) in paragraph at lines 4--4
 []\OT1/cmr/bx/n/17.28 MPU 2010 (CESPE) - ANA-LISTA DE IN-FORM[]ATICA
-) (./98_GFDL_license.tex [10]
+) (./98_GFDL_license.tex [12]
 Ap\^endice B.
-)) [11] (./base.aux) )
+)) [13] (./base.aux) )
 (see the transcript file for additional information)</usr/share/texmf-dist/font
 s/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public
 /amsfonts/cm/cmbxsl10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm
 /cmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></u
 sr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmss17.pfb></usr/share/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12
-.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on base.pdf (11 pages, 150482 bytes).
+dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmss12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmss17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.p
+fb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on base.pdf (13 pages, 165812 bytes).
 Transcript written on base.log.
 This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/Arch Linux) (preloaded format=pdflatex)
  restricted \write18 enabled.
@@ -390,7 +396,7 @@ babelbib: Set language for keywords in the bibliography fixed to brazil
 *geometry* detected driver: pdftex
 (/usr/share/texmf-dist/tex/latex/hyperref/nameref.sty
 (/usr/share/texmf-dist/tex/generic/oberdiek/gettitlestring.sty)) (./base.out)
-(./base.out) (./titlepage.tex <titlepage.png, id=68, 306.14375pt x 120.45pt>
+(./base.out) (./titlepage.tex <titlepage.png, id=80, 306.14375pt x 120.45pt>
 <use titlepage.png> (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd)
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd)
 (/usr/share/texmf-dist/tex/latex/base/ulasy.fd)) [1{/var/lib/texmf/fonts/map/pd
@@ -413,24 +419,27 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 Cap\'{\i }tulo 2.
 ) (./30_postgresql.tex [6]
 Cap\'{\i }tulo 3.
-[7] [8])) [9]
+[7] [8]) (./40_postgresql-intro.tex [9]
+Cap\'{\i }tulo 4.
+[10] (/usr/share/texmf-dist/tex/latex/ucs/data/uni-1.def))) [11]
 No file base.bbl.
 (./Appendix.tex (./95_concursos.tex
 Ap\^endice A.
 
 Overfull \hbox (8.12175pt too wide) in paragraph at lines 4--4
 []\OT1/cmr/bx/n/17.28 MPU 2010 (CESPE) - ANA-LISTA DE IN-FORM[]ATICA
-) (./98_GFDL_license.tex [10]
+) (./98_GFDL_license.tex [12]
 Ap\^endice B.
-)) [11] (./base.aux) )
+)) [13] (./base.aux) )
 (see the transcript file for additional information)</usr/share/texmf-dist/font
 s/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public
 /amsfonts/cm/cmbxsl10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm
 /cmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></u
 sr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmss17.pfb></usr/share/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12
-.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on base.pdf (11 pages, 150482 bytes).
+dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmss12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmss17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.p
+fb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on base.pdf (13 pages, 165812 bytes).
 Transcript written on base.log.

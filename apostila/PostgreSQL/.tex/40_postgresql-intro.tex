@@ -1,0 +1,79 @@
+\newpage \chapter{Intefaces de Acesso ao PostgreSQL}\setcounter{SteP}{1}
+    No jargão de banco de dados, o PostgreSQL utiliza o modelo cliente-servidor.
+Uma sessão do PostgreSQL consiste nos seguintes processos (programas) cooperando entre si:
+
+\section{Interfaces de Acesso ao Banco de Dados}\setcounter{SteP}{1}
+
+\begin{itemize}
+\item{\bf }O PostgreSQL pode ser acessado a partir de várias linguagens, entre elas
+estão:
+
+    - C, C++
+
+    - Java (JDBC)
+
+    - PHP, JSP, ColdFusion
+
+    - TCL/Tk
+
+    - Perl
+
+    - Python
+
+    - ODBC (ASP, Delphi ou qualquer linguagem que suporte ODBC)
+
+\end{itemize}
+
+\section{ Conexão JDBC }\setcounter{SteP}{1}
+
+\begin{itemize}
+	\item{\bf }Abaixo um exeomplo de conexção utilizando drive JDBC:
+\begin{VerbatimNumerado}
+	public Connection connect() {
+	    driver = "org.postgresql.Driver";
+	    url = "jdbc:postgresql://172.16.128.13:5432/teste?user=
+	        postgres";
+	    try{
+	       Class.forName(drive).newInstance();
+	       con = DriverManager.getConnection(url);
+	   }
+	   catch (Exception e){
+	       System.out.println("Error");
+	       e.printStackTrace();
+	   }
+           return con;
+	}
+\end{VerbatimNumerado}
+\item{\bf } Para o URL de conexão temos as opções:
+
+	- {\bf User}: usuário para conexão.
+
+	- {\bf Password}: senha para a conexão.
+
+	- {\bf Database}: nome do banco de dados a se acessado.
+     
+        - {\bf Port}: porta de conexão.
+
+	- {\bf IP}:  endereço IP do servidor.
+
+\end{itemize}
+
+
+\section{Introdução ao psql}\setcounter{SteP}{1}
+\begin{itemize}
+\item{\bf }O psql é o modo interativo do PostgreSQL para acesso e manipulação dos bancod de dados.
+\begin{BoxVerbatim}
+	psql [-h hostname -p port -U user -W] [database]
+\end{BoxVerbatim}
+\item{\bf }Onde:
+
+- {\bf hostname}: nome ou IP do servidor (padrão é localhost)
+
+- {\bf port}: porta de conexão (padrão ŕ 5432)
+
+- {\bf user}: usuário postgresql (padrão é o usuário de sistema operacional)
+
+- {\bf database}: nome do banco de dados.
+
+\item{\bf } A opção -w força a entrada da senha do usuário.
+\end{itemize}

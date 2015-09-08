@@ -1,0 +1,82 @@
+<capitulo>Intefaces de Acesso ao PostgreSQL</capitulo>
+    No jargão de banco de dados, o PostgreSQL utiliza o modelo cliente-servidor.
+Uma sessão do PostgreSQL consiste nos seguintes processos (programas) cooperando entre si:
+
+<subsecao>Interfaces de Acesso ao Banco de Dados</subsecao>
+
+<lista>
+<item/>O PostgreSQL pode ser acessado a partir de várias linguagens, entre elas
+estão:
+
+    - C, C++
+
+    - Java (JDBC)
+
+    - PHP, JSP, ColdFusion
+
+    - TCL/Tk
+
+    - Perl
+
+    - Python
+
+    - ODBC (ASP, Delphi ou qualquer linguagem que suporte ODBC)
+
+</lista>
+
+<subsecao> Conexão JDBC </subsecao>
+
+<lista>
+	<item/>Abaixo um exeomplo de conexção utilizando drive JDBC:
+<comandoNumerado>
+	public Connection connect() {
+	    driver = "org.postgresql.Driver";
+	    url = "jdbc:postgresql://172.16.128.13:5432/teste?user=
+	        postgres";
+	    try{
+	       Class.forName(drive).newInstance();
+	       con = DriverManager.getConnection(url);
+	   }
+	   catch (Exception e){
+	       System.out.println("Error");
+	       e.printStackTrace();
+	   }
+           return con;
+	}
+</comandoNumerado>
+<item/> Para o URL de conexão temos as opções:
+
+	- <b>User</b>: usuário para conexão.
+
+	- <b>Password</b>: senha para a conexão.
+
+	- <b>Database</b>: nome do banco de dados a se acessado.
+     
+        - <b>Port</b>: porta de conexão.
+
+	- <b>IP</b>:  endereço IP do servidor.
+
+</lista>
+
+
+<subsecao>Introdução ao psql</subsecao>
+<lista>
+<item/>O psql é o modo interativo do PostgreSQL para acesso e manipulação dos bancod de dados.
+<comando>
+	psql [-h hostname -p port -U user -W] [database]
+</comando>
+<item/>Onde:
+
+- <b>hostname</b>: nome ou IP do servidor (padrão é localhost)
+
+- <b>port</b>: porta de conexão (padrão ŕ 5432)
+
+- <b>user</b>: usuário postgresql (padrão é o usuário de sistema operacional)
+
+- <b>database</b>: nome do banco de dados.
+
+<item/> A opção -w força a entrada da senha do usuário.
+</lista>o
+
+
+<subsecao>Adcionando Usuário</subsecao>

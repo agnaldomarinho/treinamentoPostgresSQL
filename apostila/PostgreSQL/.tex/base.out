@@ -10,7 +10,10 @@
 \BOOKMARK [1][-]{section.3.1}{3.1 O que \351 o PostgreSQL?}{chapter.3}% 10
 \BOOKMARK [1][-]{section.3.2}{3.2 \040Principais Funcionalidades}{chapter.3}% 11
 \BOOKMARK [1][-]{section.3.3}{3.3 Plataforma Suportadas}{chapter.3}% 12
-\BOOKMARK [1][-]{section.3.4}{3.4 Instala\347\343o}{chapter.3}% 13
-\BOOKMARK [0][]{appendix.A}{A Quest\365es de Concurso}{}% 14
-\BOOKMARK [1][-]{section.A.1}{A.1 MPU 2010 \(CESPE\) - ANALISTA DE INFORM\301TICA / SUPORTE T\311CNICO - Cargo 27}{appendix.A}% 15
-\BOOKMARK [0][]{appendix.B}{B Licen\347a}{}% 16
+\BOOKMARK [0][]{chapter.4}{4 Intefaces de Acesso ao PostgreSQL}{}% 13
+\BOOKMARK [1][-]{section.4.1}{4.1 Interfaces de Acesso ao Banco de Dados}{chapter.4}% 14
+\BOOKMARK [1][-]{section.4.2}{4.2 \040Conex\343o JDBC }{chapter.4}% 15
+\BOOKMARK [1][-]{section.4.3}{4.3 Introdu\347\343o ao psql}{chapter.4}% 16
+\BOOKMARK [0][]{appendix.A}{A Quest\365es de Concurso}{}% 17
+\BOOKMARK [1][-]{section.A.1}{A.1 MPU 2010 \(CESPE\) - ANALISTA DE INFORM\301TICA / SUPORTE T\311CNICO - Cargo 27}{appendix.A}% 18
+\BOOKMARK [0][]{appendix.B}{B Licen\347a}{}% 19
