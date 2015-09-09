@@ -58,17 +58,44 @@ estão:
 
 \end{itemize}
 
-Configuração ao PostgreSQL}\setcounter{SteP}{1}
-
-Depois de baixar e instalar é hora de configurar. O usário root do nosso banco de dados é o {\bf postgres}. 
+\section{Configuração ao PostgreSQL}\setcounter{SteP}{1}
+Depois de baixar e instalar é hora de configurar. O usuário root do nosso banco de dados é o {\bf postgres}. 
 No processo de instalação foi criado um usuário chamdo postgres também no sistema. Então, nos logaremos com este usuário.
+
+\begin{BoxVerbatim}
+# Su postgres
+\end{BoxVerbatim}
+Por padrão, {\bf o usuário de banco de dados ‘postgres’} não tem senha, então agora nos logaremos no shell 
+do PostgreSQL para alterar a senha do usuário postgres.
+
+Primeiro, logando no shell…
+\begin{BoxVerbatim}
+$ psql
+\end{BoxVerbatim}
+Agora, já no shell do PostgreSQL, vamos alterar a senha do usuário postgres
+
+\begin{BoxVerbatim}
+postgres=# ALTER USER postgres WITH PASSWORD 'qualquersenha';
+\end{BoxVerbatim}
+Esse cara que a gente acabou de configurar ai é o root do banco de dados… 
+A gente não vai ficar usando esse usuário nas nossas aplicações, né? Então! vamos criar um novo usuário.
+
+\begin{BoxVerbatim}
+postgres=# CREATE USER usuario NOCREATEDB NOSUPERUSER NOCREATEROLE PASSWORD 
+	'senha';
+\end{BoxVerbatim}
+Agora, vamos criar uma tabela também
+
+\begin{BoxVerbatim}
+postgres=# CREATE DATABASE minhabase;
+\end{BoxVerbatim}
 
 
 \section{Introdução ao psql}\setcounter{SteP}{1}
 \begin{itemize}
 \item{\bf }O psql é o modo interativo do PostgreSQL para acesso e manipulação dos bancod de dados.
 \begin{BoxVerbatim}
-	psql [-h hostname -p port -U user -W] [database]
+psql [-h hostname -p port -U user -W] [database]
 \end{BoxVerbatim}
 \item{\bf }Onde:
 

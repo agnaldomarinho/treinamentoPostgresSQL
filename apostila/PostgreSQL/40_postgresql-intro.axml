@@ -58,20 +58,44 @@ estão:
 
 </lista>
 
-<subesecao>Configuração ao PostgreSQL</subsecao>
+<subsecao>Configuração ao PostgreSQL</subsecao>
 Depois de baixar e instalar é hora de configurar. O usuário root do nosso banco de dados é o <b>postgres</b>. 
 No processo de instalação foi criado um usuário chamdo postgres também no sistema. Então, nos logaremos com este usuário.
 
-<comandoNumerado>
-	# Su postgres
-</comandoNumerado>
+<comando>
+# Su postgres
+</comando>
+Por padrão, <b>o usuário de banco de dados ‘postgres’</b> não tem senha, então agora nos logaremos no shell 
+do PostgreSQL para alterar a senha do usuário postgres.
+
+Primeiro, logando no shell…
+<comando>
+$ psql
+</comando>
+Agora, já no shell do PostgreSQL, vamos alterar a senha do usuário postgres
+
+<comando>
+postgres=# ALTER USER postgres WITH PASSWORD 'qualquersenha';
+</comando>
+Esse cara que a gente acabou de configurar ai é o root do banco de dados… 
+A gente não vai ficar usando esse usuário nas nossas aplicações, né? Então! vamos criar um novo usuário.
+
+<comando>
+postgres=# CREATE USER usuario NOCREATEDB NOSUPERUSER NOCREATEROLE PASSWORD 
+	'senha';
+</comando>
+Agora, vamos criar uma tabela também
+
+<comando>
+postgres=# CREATE DATABASE minhabase;
+</comando>
 
 
 <subsecao>Introdução ao psql</subsecao>
 <lista>
 <item/>O psql é o modo interativo do PostgreSQL para acesso e manipulação dos bancod de dados.
 <comando>
-	psql [-h hostname -p port -U user -W] [database]
+psql [-h hostname -p port -U user -W] [database]
 </comando>
 <item/>Onde:
 
