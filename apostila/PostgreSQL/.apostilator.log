@@ -1,17 +1,17 @@
 
-### Apostilator is running: Wed Sep  9 15:04:54 2015
+### Apostilator is running: Wed Sep  9 15:52:07 2015
 
 
-### Apostilator::create_symlinks(): Wed Sep  9 15:04:54 2015
+### Apostilator::create_symlinks(): Wed Sep  9 15:52:07 2015
 
 
-### Apostilator::convert_apostila(): Wed Sep  9 15:04:54 2015
+### Apostilator::convert_apostila(): Wed Sep  9 15:52:07 2015
 
 
-### Apostilator::convert_latex2pdf(): Wed Sep  9 15:04:54 2015
+### Apostilator::convert_latex2pdf(): Wed Sep  9 15:52:07 2015
 
 
-### Apostilator::create_bibliography(): Wed Sep  9 15:04:55 2015
+### Apostilator::create_bibliography(): Wed Sep  9 15:52:09 2015
 
 Linux) (preloaded format=pdflatex)
  restricted \write18 enabled.
@@ -157,7 +157,7 @@ dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-dist/fonts/type1
 ts/cm/cmss17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.p
 fb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on base.pdf (13 pages, 192846 bytes).
+Output written on base.pdf (13 pages, 192696 bytes).
 Transcript written on base.log.
 This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/Arch Linux) (preloaded format=pdflatex)
  restricted \write18 enabled.
@@ -297,7 +297,7 @@ dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-dist/fonts/type1
 ts/cm/cmss17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.p
 fb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on base.pdf (13 pages, 196221 bytes).
+Output written on base.pdf (13 pages, 196071 bytes).
 Transcript written on base.log.
 This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/Arch Linux) (preloaded format=pdflatex)
  restricted \write18 enabled.
@@ -437,5 +437,5 @@ dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-dist/fonts/type1
 ts/cm/cmss17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.p
 fb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on base.pdf (13 pages, 196221 bytes).
+Output written on base.pdf (13 pages, 196071 bytes).
 Transcript written on base.log.

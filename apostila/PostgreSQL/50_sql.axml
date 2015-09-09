@@ -29,5 +29,6 @@ CREATE TABLE clima {
     temp_max        int,             -- temperatura máxima
     prcp            real,            -- precipitação
     data            date     
-}
+};
 </comando>
+Este comando pode ser digitado no psql com quebras de linha. O psql reconhece que o comando só termina quando é encontrado o ponto-e-vírgula.
