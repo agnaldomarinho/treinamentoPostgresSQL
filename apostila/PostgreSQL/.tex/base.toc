@@ -16,6 +16,8 @@
 \contentsline {section}{\numberline {4.2} Conex\IeC {\~a}o JDBC }{10}{section.4.2}
 \contentsline {section}{\numberline {4.3}Configura\IeC {\c c}\IeC {\~a}o ao PostgreSQL}{11}{section.4.3}
 \contentsline {section}{\numberline {4.4}Introdu\IeC {\c c}\IeC {\~a}o ao psql}{11}{section.4.4}
-\contentsline {chapter}{\numberline {A}Quest\IeC {\~o}es de Concurso}{12}{appendix.A}
-\contentsline {section}{\numberline {A.1}MPU 2010 (CESPE) - ANALISTA DE INFORM\IeC {\'A}TICA / SUPORTE T\IeC {\'E}CNICO - Cargo 27}{12}{section.A.1}
-\contentsline {chapter}{\numberline {B}Licen\IeC {\c c}a}{13}{appendix.B}
+\contentsline {chapter}{\numberline {5}Liguagem SQL}{12}{chapter.5}
+\contentsline {section}{\numberline {5.1}A Linguagem SQL}{12}{section.5.1}
+\contentsline {section}{\numberline {5.2}Introdu\IeC {\c c}\IeC {\~a}o}{12}{section.5.2}
+\contentsline {section}{\numberline {5.3}Cria\IeC {\c c}\IeC {\~a}o de Tabelas}{12}{section.5.3}
+\contentsline {chapter}{\numberline {A}Licen\IeC {\c c}a}{13}{appendix.A}

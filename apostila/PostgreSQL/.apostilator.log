@@ -1,17 +1,17 @@
 
-### Apostilator is running: Wed Sep  9 11:59:58 2015
+### Apostilator is running: Wed Sep  9 15:04:54 2015
 
 
-### Apostilator::create_symlinks(): Wed Sep  9 11:59:58 2015
+### Apostilator::create_symlinks(): Wed Sep  9 15:04:54 2015
 
 
-### Apostilator::convert_apostila(): Wed Sep  9 11:59:58 2015
+### Apostilator::convert_apostila(): Wed Sep  9 15:04:54 2015
 
 
-### Apostilator::convert_latex2pdf(): Wed Sep  9 11:59:58 2015
+### Apostilator::convert_latex2pdf(): Wed Sep  9 15:04:54 2015
 
 
-### Apostilator::create_bibliography(): Wed Sep  9 11:59:59 2015
+### Apostilator::create_bibliography(): Wed Sep  9 15:04:55 2015
 
 Linux) (preloaded format=pdflatex)
  restricted \write18 enabled.
@@ -108,7 +108,7 @@ babelbib: Set language for keywords in the bibliography fixed to brazil
 *geometry* detected driver: pdftex
 (/usr/share/texmf-dist/tex/latex/hyperref/nameref.sty
 (/usr/share/texmf-dist/tex/generic/oberdiek/gettitlestring.sty))
-(./titlepage.tex <titlepage.png, id=4, 306.14375pt x 120.45pt>
+(./titlepage.tex <titlepage.png, id=4, 1201.48875pt x 438.63875pt>
 <use titlepage.png> (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd)
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd)
 (/usr/share/texmf-dist/tex/latex/base/ulasy.fd)) [1{/var/lib/texmf/fonts/map/pd
@@ -134,15 +134,12 @@ Cap\'{\i }tulo 3.
 [7] [8]) (./40_postgresql-intro.tex [9]
 Cap\'{\i }tulo 4.
 [10] (/usr/share/texmf-dist/tex/latex/ucs/data/uni-32.def)
-(/usr/share/texmf-dist/tex/latex/ucs/data/uni-1.def))) [11]
+(/usr/share/texmf-dist/tex/latex/ucs/data/uni-1.def)) (./50_sql.tex [11]
+Cap\'{\i }tulo 5.
+)) [12]
 No file base.bbl.
-(./Appendix.tex (./95_concursos.tex
+(./Appendix.tex (./98_GFDL_license.tex
 Ap\^endice A.
-
-Overfull \hbox (8.12175pt too wide) in paragraph at lines 4--4
-[]\OT1/cmr/bx/n/17.28 MPU 2010 (CESPE) - ANA-LISTA DE IN-FORM[]ATICA
-) (./98_GFDL_license.tex [12]
-Ap\^endice B.
 )) [13] (./base.aux)
 
 Package rerunfilecheck Warning: File `base.out' has changed.
@@ -160,7 +157,7 @@ dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-dist/fonts/type1
 ts/cm/cmss17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.p
 fb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on base.pdf (13 pages, 165319 bytes).
+Output written on base.pdf (13 pages, 192846 bytes).
 Transcript written on base.log.
 This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/Arch Linux) (preloaded format=pdflatex)
  restricted \write18 enabled.
@@ -256,8 +253,9 @@ babelbib: Set language for keywords in the bibliography fixed to brazil
 *geometry* detected driver: pdftex
 (/usr/share/texmf-dist/tex/latex/hyperref/nameref.sty
 (/usr/share/texmf-dist/tex/generic/oberdiek/gettitlestring.sty)) (./base.out)
-(./base.out) (./titlepage.tex <titlepage.png, id=84, 306.14375pt x 120.45pt>
-<use titlepage.png> (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd)
+(./base.out) (./titlepage.tex
+<titlepage.png, id=92, 1201.48875pt x 438.63875pt> <use titlepage.png>
+(/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd)
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd)
 (/usr/share/texmf-dist/tex/latex/base/ulasy.fd)) [1{/var/lib/texmf/fonts/map/pd
 ftex/updmap/pdftex.map} <./titlepage.png>] (./base.toc) [2] (./Chapters.tex
@@ -282,15 +280,12 @@ Cap\'{\i }tulo 3.
 [7] [8]) (./40_postgresql-intro.tex [9]
 Cap\'{\i }tulo 4.
 [10] (/usr/share/texmf-dist/tex/latex/ucs/data/uni-32.def)
-(/usr/share/texmf-dist/tex/latex/ucs/data/uni-1.def))) [11]
+(/usr/share/texmf-dist/tex/latex/ucs/data/uni-1.def)) (./50_sql.tex [11]
+Cap\'{\i }tulo 5.
+)) [12]
 No file base.bbl.
-(./Appendix.tex (./95_concursos.tex
+(./Appendix.tex (./98_GFDL_license.tex
 Ap\^endice A.
-
-Overfull \hbox (8.12175pt too wide) in paragraph at lines 4--4
-[]\OT1/cmr/bx/n/17.28 MPU 2010 (CESPE) - ANA-LISTA DE IN-FORM[]ATICA
-) (./98_GFDL_license.tex [12]
-Ap\^endice B.
 )) [13] (./base.aux) )
 (see the transcript file for additional information)</usr/share/texmf-dist/font
 s/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public
@@ -302,7 +297,7 @@ dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-dist/fonts/type1
 ts/cm/cmss17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.p
 fb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on base.pdf (13 pages, 168411 bytes).
+Output written on base.pdf (13 pages, 196221 bytes).
 Transcript written on base.log.
 This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/Arch Linux) (preloaded format=pdflatex)
  restricted \write18 enabled.
@@ -398,8 +393,9 @@ babelbib: Set language for keywords in the bibliography fixed to brazil
 *geometry* detected driver: pdftex
 (/usr/share/texmf-dist/tex/latex/hyperref/nameref.sty
 (/usr/share/texmf-dist/tex/generic/oberdiek/gettitlestring.sty)) (./base.out)
-(./base.out) (./titlepage.tex <titlepage.png, id=84, 306.14375pt x 120.45pt>
-<use titlepage.png> (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd)
+(./base.out) (./titlepage.tex
+<titlepage.png, id=92, 1201.48875pt x 438.63875pt> <use titlepage.png>
+(/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd)
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd)
 (/usr/share/texmf-dist/tex/latex/base/ulasy.fd)) [1{/var/lib/texmf/fonts/map/pd
 ftex/updmap/pdftex.map} <./titlepage.png>] (./base.toc) [2] (./Chapters.tex
@@ -424,15 +420,12 @@ Cap\'{\i }tulo 3.
 [7] [8]) (./40_postgresql-intro.tex [9]
 Cap\'{\i }tulo 4.
 [10] (/usr/share/texmf-dist/tex/latex/ucs/data/uni-32.def)
-(/usr/share/texmf-dist/tex/latex/ucs/data/uni-1.def))) [11]
+(/usr/share/texmf-dist/tex/latex/ucs/data/uni-1.def)) (./50_sql.tex [11]
+Cap\'{\i }tulo 5.
+)) [12]
 No file base.bbl.
-(./Appendix.tex (./95_concursos.tex
+(./Appendix.tex (./98_GFDL_license.tex
 Ap\^endice A.
-
-Overfull \hbox (8.12175pt too wide) in paragraph at lines 4--4
-[]\OT1/cmr/bx/n/17.28 MPU 2010 (CESPE) - ANA-LISTA DE IN-FORM[]ATICA
-) (./98_GFDL_license.tex [12]
-Ap\^endice B.
 )) [13] (./base.aux) )
 (see the transcript file for additional information)</usr/share/texmf-dist/font
 s/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public
@@ -444,5 +437,5 @@ dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-dist/fonts/type1
 ts/cm/cmss17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.p
 fb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on base.pdf (13 pages, 168411 bytes).
+Output written on base.pdf (13 pages, 196221 bytes).
 Transcript written on base.log.

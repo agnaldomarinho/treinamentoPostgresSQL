@@ -1,0 +1,33 @@
+\newpage \chapter{Liguagem SQL}\setcounter{SteP}{1}
+
+\section{A Linguagem SQL}\setcounter{SteP}{1}
+\begin{itemize}
+	\item{\bf } SQL (Structured Query Languagem) é uma linguagem declarativa de acesso
+	à banco de dados.
+	\item{\bf }Por ser uma linguagem padronizada, a migração para o PostgreSQL é 
+	fácilitada para aqueles que conhecem SQL.
+	\item{\bf }O PostgreSQL está em conformidade com a maior parte das espeficições
+	SQL92 e SQL99.
+	\item{\bf }A linguagem SQL não considera a caixa dos comandos ({\it xase insensitive}).
+	Entretanto, a caixa faz diferença para os leitores entre {\it aspas}.
+\end{itemize}
+
+\section{Introdução}\setcounter{SteP}{1}
+Este capítulo fornece uma visão geral sobre como utilizar a linguagem SQL para realizar operações simples. 
+O propósito deste tutorial é apenas fazer uma introdução e, de forma alguma, ser um tutorial completo sobre a linguagem SQL.
+É preciso estar ciente que algumas funcionalidades da linguagem SQL do PostgreSQL são extensões ao padrão.
+
+Conforme criando o usuario e banco de dados, conforme descrito no capítulo anterior, e que o 
+psql esteja ativo.
+
+\section{Criação de Tabelas}\setcounter{SteP}{1}
+Pode-se criar uma tabela especificando o seu nome juntamente com os nomes das colunas e seus tipos de dado:
+\begin{BoxVerbatim}
+CREATE TABLE clima {
+    ciade           char(80),
+    tem_min         int,             -- temperatura mínima
+    temp_max        int,             -- temperatura máxima
+    prcp            real,            -- precipitação
+    data            date     
+}
+\end{BoxVerbatim}

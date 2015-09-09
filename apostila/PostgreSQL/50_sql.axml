@@ -1,0 +1,33 @@
+<capitulo>Liguagem SQL</capitulo>
+
+<subsecao>A Linguagem SQL</subsecao>
+<lista>
+	<item/> SQL (Structured Query Languagem) é uma linguagem declarativa de acesso
+	à banco de dados.
+	<item/>Por ser uma linguagem padronizada, a migração para o PostgreSQL é 
+	fácilitada para aqueles que conhecem SQL.
+	<item/>O PostgreSQL está em conformidade com a maior parte das espeficições
+	SQL92 e SQL99.
+	<item/>A linguagem SQL não considera a caixa dos comandos (<i>xase insensitive</i>).
+	Entretanto, a caixa faz diferença para os leitores entre <i>aspas</i>.
+</lista>
+
+<subsecao>Introdução</subsecao>
+Este capítulo fornece uma visão geral sobre como utilizar a linguagem SQL para realizar operações simples. 
+O propósito deste tutorial é apenas fazer uma introdução e, de forma alguma, ser um tutorial completo sobre a linguagem SQL.
+É preciso estar ciente que algumas funcionalidades da linguagem SQL do PostgreSQL são extensões ao padrão.
+
+Conforme criando o usuario e banco de dados, conforme descrito no capítulo anterior, e que o 
+psql esteja ativo.
+
+<subsecao>Criação de Tabelas</subsecao>
+Pode-se criar uma tabela especificando o seu nome juntamente com os nomes das colunas e seus tipos de dado:
+<comando>
+CREATE TABLE clima {
+    ciade           char(80),
+    tem_min         int,             -- temperatura mínima
+    temp_max        int,             -- temperatura máxima
+    prcp            real,            -- precipitação
+    data            date     
+}
+</comando>
