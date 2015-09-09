@@ -58,6 +58,14 @@ estão:
 
 </lista>
 
+<subesecao>Configuração ao PostgreSQL</subsecao>
+Depois de baixar e instalar é hora de configurar. O usuário root do nosso banco de dados é o <b>postgres</b>. 
+No processo de instalação foi criado um usuário chamdo postgres também no sistema. Então, nos logaremos com este usuário.
+
+<comandoNumerado>
+	# Su postgres
+</comandoNumerado>
+
 
 <subsecao>Introdução ao psql</subsecao>
 <lista>
@@ -79,4 +87,3 @@ estão:
 </lista>o
 
 
-<subsecao>Adcionando Usuário</subsecao>

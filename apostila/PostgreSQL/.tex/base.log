@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/Arch Linux) (preloaded format=pdflatex 2015.8.25)  4 SEP 2015 10:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/Arch Linux) (preloaded format=pdflatex 2015.8.25)  9 SEP 2015 11:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -421,7 +421,7 @@ File: uni-0.def 2013/05/13 UCS: Unicode data U+0000..U+00FF
 LaTeX Warning: Unused global option(s):
     [heading].
 
-(./base.aux)
+No file base.aux.
 \openout1 = `base.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 104.
@@ -438,7 +438,7 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 104.
 LaTeX Font Info:    ... okay on input line 104.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 104.
 LaTeX Font Info:    ... okay on input line 104.
- (/usr/share/texmf-dist/tex/latex/ucs/ucsencs.def
+(/usr/share/texmf-dist/tex/latex/ucs/ucsencs.def
 File: ucsencs.def 2011/01/21 Fixes to fontencodings LGR, T3
 )
 (/usr/share/texmf-dist/tex/context/base/supp-pdf.mkii
@@ -525,12 +525,11 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 104.
 LaTeX Info: Redefining \pageref on input line 104.
 LaTeX Info: Redefining \nameref on input line 104.
- (./base.out)
-(./base.out)
 \@outlinefile=\write4
 \openout4 = `base.out'.
 
- (./titlepage.tex <titlepage.png, id=80, 306.14375pt x 120.45pt>
+
+(./titlepage.tex <titlepage.png, id=4, 306.14375pt x 120.45pt>
 File: titlepage.png Graphic file (type png)
 
 <use titlepage.png>
@@ -557,7 +556,6 @@ Package babel Info: Redefining portuges shorthand "|
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./titlepage.png>]
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 109.
- (./base.toc)
 \tf@toc=\write5
 \openout5 = `base.toc'.
 
@@ -652,72 +650,22 @@ Package babel Info: Redefining portuges shorthand "|
 [10
 
 ]
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 62.
- (/usr/share/texmf-dist/tex/latex/ucs/data/uni-1.def
-File: uni-1.def 2013/05/13 UCS: Unicode data U+0100..U+01FF
-)))
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 112.
- [11]
-No file base.bbl.
-(./Appendix.tex (./95_concursos.tex
-Ap\^endice A.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 1.
+! Too many }'s.
+l.61 Configuração ao PostgreSQL}
+                                  \setcounter{SteP}{1}
+? 
+! Emergency stop.
+l.61 Configuração ao PostgreSQL}
+                                  \setcounter{SteP}{1}
+End of file on the terminal!
 
-Overfull \hbox (8.12175pt too wide) in paragraph at lines 4--4
-[]\OT1/cmr/bx/n/17.28 MPU 2010 (CESPE) - ANA-LISTA DE IN-FORM[]ATICA
- []
-
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 4.
-) (./98_GFDL_license.tex
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 1.
- [12
-
-]
-Ap\^endice B.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 1.
-))
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 119.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 119.
- [13
-
-]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 119.
- (./base.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 119.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 119.
-Package rerunfilecheck Info: File `base.out' has not changed.
-(rerunfilecheck)             Checksum: D2769D1C797C02C693CB9D41DF9AA40C;1437.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 119.
- ) 
+ 
 Here is how much of TeX's memory you used:
- 9492 strings out of 493109
- 132135 string characters out of 6140856
- 249243 words of memory out of 5000000
- 12732 multiletter control sequences out of 15000+600000
+ 8836 strings out of 493109
+ 125442 string characters out of 6140856
+ 249139 words of memory out of 5000000
+ 12106 multiletter control sequences out of 15000+600000
  12937 words of font info for 49 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 34i,12n,43p,332b,545s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmbxsl10.pfb></usr/share/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmr17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr
-/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmss17.pfb></usr/share/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmti12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.
-pfb>
-Output written on base.pdf (13 pages, 165812 bytes).
-PDF statistics:
- 213 PDF objects out of 1000 (max. 8388607)
- 183 compressed objects within 2 object streams
- 33 named destinations out of 1000 (max. 500000)
- 158 words of extra memory for PDF output out of 10000 (max. 10000000)
-
+ 34i,12n,43p,332b,494s stack positions out of 5000i,500n,10000p,200000b,80000s
+!  ==> Fatal error occurred, no output PDF file produced!
