@@ -23,11 +23,279 @@ psql esteja ativo.
 \section{Criação de Tabelas}\setcounter{SteP}{1}
 Pode-se criar uma tabela especificando o seu nome juntamente com os nomes das colunas e seus tipos de dado:
 \begin{BoxVerbatim}
-CREATE TABLE clima {
+CREATE TABLE clima (
     ciade           char(80),
     tem_min         int,             -- temperatura mínima
     temp_max        int,             -- temperatura máxima
     prcp            real,            -- precipitação
     data            date     
-}
+);
+\end{BoxVerbatim}
+Este comando pode ser digitado no psql com quebras de linha. 
+O psql reconhece que o comando só termina quando é encontrado o ponto-e-vírgula.
+
+Espaços em branco (ou seja, espaços, tabulações e novas linhas) podem ser utilizados livremente nos comandos SQL.
+Isto significa que o comando pode ser digitado com um alinhamento diferente do mostrado acima, 
+ou mesmo tudo em uma única linha. Dois hífens ("--") iniciam um comentário; tudo que vem depois 
+é ignorado até o final da linha. A linguagem SQL não diferencia letras maiúsculas e minúsculas 
+nas palavras chave e nos identificadores, a não ser que os identificadores sejam delimitados por
+aspas (") para preservar letras maiúsculas e minúsculas, o que não foi feito acima.
+
+No comando, varchar(80) especifica um tipo de dado que pode armazenar cadeias de caracteres arbitrárias 
+com comprimento até 80 caracteres; int é o tipo inteiro normal; real é o tipo para armazenar números de ponto 
+flutuante de precisão simples; date é o tipo para armazenar data e hora (a coluna do tipo date pode se chamar date, 
+o que tanto pode ser conveniente quanto pode causar confusão).
+
+O PostgreSQL suporta os tipos de dado SQL padrão int, smallint, real, double precision, char(N), varchar(N), 
+date, time, timestamp e interval, assim como outros tipos de utilidade geral, e um conjunto diversificado de tipos geométricos. 
+O PostgreSQL pode ser personalizado com um número arbitrário de tipos de dado definidos pelo usuário. 
+Como conseqüência, sintaticamente os nomes dos tipos não são palavras chave, exceto onde for requerido para suportar casos especiais do padrão SQL.
+
+No segundo exemplo são armazenadas cidades e suas localizações geográficas associadas:
+
+\begin{BoxVerbatim}
+CREATE TABLE cidade(
+    nome              varchar(80),
+    localizacao       pooint
+);
+\end{BoxVerbatim}
+
+O tipo point é um exemplo de tipo de dado específico do PostgreSQL.
+
+Para terminar deve ser mencionado que, quando a tabela não é mais necessária, ou se deseja recriá-la de uma forma diferente, é possível removê-la por meio do comando:
+
+\begin{BoxVerbatim}
+DROP TABLE nome_da_tabela;
+\end{BoxVerbatim}
+
+\section{Inserção de linhas em tablea}\setcounter{SteP}{1}
+É utilizado o comando INSERT para inserir linhas nas tabelas:
+
+\begin{BoxVerbatim}
+INSERT INTO clima VALUES ('São Francisco', 46, 50, 0.25, '1994-11-27');
+\end{BoxVerbatim}
+
+Repare que todos os tipos de dado possuem formato de entrada de dados bastante óbvios. As constantes, que não são valores numéricos simples, geralmente devem estar entre apóstrofos ('), como no exemplo acima. O tipo date é, na verdade, muito flexível em relação aos dados que aceita, mas para este tutorial vamos nos fixar no formato sem ambigüidade mostrado acima.
+
+O tipo point requer um par de coordenadas como entrada, como mostrado abaixo:
+
+\begin{BoxVerbatim}
+INSERT INTO cidades VALUES ('São Francisco', '(-194.0, 53.0)');
+\end{BoxVerbatim}
+A sintaxe usada até agora requer que seja lembrada a ordem das colunas. Uma sintaxe alternativa permite declarar as colunas explicitamente:
+
+\begin{BoxVerbatim}
+INSERT INTO clima (cidade, temp_min, temp_max, prcp, data)
+    VALUES ('São Francisco', 43, 57, 0.0, '2015-09-29');
+\end{BoxVerbatim}
+Se for desejado, pode-se declarar as colunas em uma ordem diferente, ou mesmo, omitir algumas colunas. Por exemplo, se a precipitação não for conhecida:
+
+\begin{BoxVerbatim}
+INSERT INTO clima (data, cidade, temp_max, temp_min)
+    VALUES ('2015-11-29', 'Mosqueiro', 54, 37);
+\end{BoxVerbatim}
+Muitos desenvolvedores consideram que declarar explicitamente as colunas é um estilo melhor que confiar na ordem implícita.
+
+Também pode ser utilizado o comando COPY para carregar uma grande quantidade de dados a 
+partir de arquivos texto puro. Geralmente é mais rápido, porque o comando COPY é 
+otimizado para esta finalidade, embora possua menos flexibilidade que o comando INSERT. Como exemplo poderíamos ter
+
+\begin{BoxVerbatim}
+COPY clima FROM '/home/user/clima.txt';
+\end{BoxVerbatim}
+onde o arquivo contendo os dados deve estar disponível para a máquina servidora, e não para a estação cliente, 
+porque o servidor lê o arquivo diretamente. Podem ser obtidas mais informações sobre o comando COPY em COPY.
+
+\section{Consultar tabelas}\setcounter{SteP}{1}
+Para trazer os dados de uma tabela, a tabela deve ser consultada. Para esta finalidade 
+é utilizado o comando SELECT do SQL. Este comando é dividido em lista de seleção 
+(a parte que especifica as colunas a serem trazidas), lista de tabelas (a parte que 
+especifica as tabelas de onde os dados vão ser trazidos), e uma qualificação opcional 
+(a parte onde são especificadas as restrições). Por exemplo, para trazer todas as linhas da tabela clima digite:
+
+\begin{BoxVerbatim}
+SELECT * FROM clima;
+\end{BoxVerbatim}
+Aqui o * é uma forma abreviada de "todas as colunas". [1] Seriam obtidos os mesmos resultados usando:
+
+\begin{BoxVerbatim}
+SELECT cidade, temp_min, temp_max, prcp, data FROM clima;
+\end{BoxVerbatim}
+A saída deve ser:
+
+\begin{BoxVerbatim}
+cidade         | temp_min | temp_max | prcp |    data
+_______________|__________|__________|______|___________
+São Francisco  |      46  |       50 | 0.25 | 1994-11-27
+São Francisco  |      43  |       57 |   0  | 1994-11-29
+Hayward        |      37  |       54 |      | 1994-11-29
+(3 linhas)
+\end{BoxVerbatim}
+Na lista de seleção podem ser especificadas expressões, e não apenas referências a colunas. Por exemplo, pode ser escrito
+
+\begin{BoxVerbatim}
+SELECT cidade, (temp_max+temp_min)/2 AS temp_media, data FROM clima;
+\end{BoxVerbatim}
+devendo produzir:
+\begin{BoxVerbatim}
+	cidade  | temp_media |   data
+________________|____________|___________
+São Francisco   |        48  | 1994-11-27
+São Francisco   |        50  | 1994-11-29
+Hayward         |        45  | 1994-11-29
+(3 linhas)
+\end{BoxVerbatim}
+Perceba que a cláusula AS foi utilizada para mudar o nome da coluna de saída (a cláusula AS é opcional).
+
+A consulta pode ser "qualificada", adicionando a cláusula WHERE para especificar as linhas desejadas. A cláusula WHERE contém expressões booleanas (valor verdade), e somente são retornadas as linhas para as quais o resultado da expressão booleana for verdade. São permitidos os operadores booleanos usuais (AND, OR e NOT) na qualificação. Por exemplo, o comando abaixo mostra o clima de São Francisco nos dias de chuva:
+
+\begin{BoxVerbatim}
+SELECT * FROM clima
+    WHERE cidade = 'São Francisco' AND prcp > 0.0;
+\end{BoxVerbatim}
+Resultado:
+
+\begin{BoxVerbatim}
+   cidade      | temp_min | temp_max | prcp |    data
+_______________|__________|__________|______|____________
+Heyward        |      37  |      54  |      | 1994-11-29
+São Francisco  |      43  |      57  |    0 | 1994-11-29
+São Francisco  |      46  |      50  | 0.25 | 1994-11-27
+\end{BoxVerbatim}
+
+Neste exemplo a ordem de classificação não está totalmente especificada e, portanto, as linhas de São Francisco podem retornar em qualquer ordem. Mas sempre seriam obtidos os resultados mostrados acima se fosse executado:
+\begin{BoxVerbatim}
+SELECT * FROM clima
+    ORDER BY cidade, temp_min;
+\end{BoxVerbatim}
+
+Pode ser solicitado que as linhas duplicadas sejam removidas do resultado da consulta
+\begin{BoxVerbatim}
+SELECT DISTINCT cidade
+    FROM clima;
+
+
+    cidade
+_______________
+ Heyward
+ São Francisco
+ (2 linhas)
+\end{BoxVerbatim}
+
+Novamente, neste exemplo a ordem das linhas pode variar. Pode-se garantir resultados consistentes utilizando DISTINCT e ORDER BY juntos:
+\begin{BoxVerbatim}
+SELECT DISTINCT cidade
+    FROM clima
+        ORDER BY cidade;
+\end{BoxVerbatim}
+
+{\bf Notas}
+\begin{itemize}
+	\item{\bf }Embora o SELECT * seja útil para consultas improvisadas, geralmente é considerado um estilo ruim para código em produção, uma vez que a adição de uma coluna à tabela mudaria os resultados.
+	\item{\bf }Em alguns sistemas de banco de dados, incluindo as verdadesões antigas do PostgreSQL, a implementação do DISTINCT ordena automaticamente as linhas e, por isso, o ORDER BY não é necessário. Mas isto não é requerido pelo padrão SQL, e o PostgreSQL corrente não garante que DISTINCT faça com que as linhas sejam ordenadas.
+\end{itemize}
+
+\section{Juncões entre tabelas}\setcounter{SteP}{1}
+ A consulta que acessa várias linhas da mesma tabela, ou de tabelas diferentes, de uma vez, é chamada de consulta de junção. Como exemplo, suponha que se queira listar todas as linhas de clima junto com a localização da cidade associada. Para fazer isto, é necessário comparar a coluna cidade de cada linha da tabela clima com a coluna nome de todas as linhas da tabela cidades, e selecionar os pares de linha onde estes valores são correspondentes.
+
+{\bf Nota}:Este é apenas um modelo conceitual, a junção geralmente é realizada de uma maneira mais eficiente que realmente comparar cada par de linhas possível, mas isto não é visível para o usuário.
+
+Esta operação pode ser efetuada por meio da seguinte consulta:
+
+\begin{BoxVerbatim}
+SELECT *
+    FROM clima, cidades
+    WHERE cidade = nome;
+
+
+
+    cidade   |temp_min|temp_max|prcp|   data   |     nome    | Localização
+_____________|________|________|____|__________|_____________|____________
+São Francisco|      46|      50|0.25|1994-11-27|São Francisco|(-194, 53)
+São Francisco|      43|      57|  0 |1994-11-29|São Francisco|(-194, 53)
+(2 linhas)
+\end{BoxVerbatim}
+
+Duas coisas devem ser observadas no conjunto de resultados produzido:
+\begin{itemize}
+\item{\bf }Não existe nenhuma linha de resultado para a cidade Hayward. Isto acontece porque não existe entrada correspondente na tabela cidades para Hayward, e a junção ignora as linhas da tabela clima sem correspondência. Veremos em breve como isto pode ser corrigido.
+Existem duas colunas contendo o nome da cidade, o que está correto porque a lista de colunas das tabelas clima e cidades estão concatenadas. Na prática isto não é desejado, sendo preferível, portanto, escrever a lista das colunas de saída explicitamente em vez de utilizar o *:
+\end{itemize}
+\begin{BoxVerbatim}
+SELECT cidade, temp_min, temp_max, prcp, data, localizacao
+    FROM clima, cidades
+    WHERE cidade = nome;
+\end{BoxVerbatim}
+
+Como todas as colunas possuem nomes diferentes, o analisador encontra automaticamente a tabela que a coluna pertence. Se existissem nomes de colunas duplicados nas duas tabelas, seria necessário qualificar os nomes das colunas para mostrar qual delas está sendo referenciada, como em:
+\begin{BoxVerbatim}
+SELECT clima.cidade, clima.temp_min, clima.temp_max,
+       clima.prcp, clima.data, cidades.localizacao
+   FROM clima, cidades
+   WHERE cidades.nome = clima.cidade;
+\end{BoxVerbatim}
+
+Muitos consideram um bom estilo qualificar todos os nomes de colunas nas consultas de junção, para que a consulta não falhe ao se adicionar posteriormente um nome de coluna duplicado a uma das tabelas.
+
+As consultas de junção do tipo visto até agora também podem ser escritas da seguinte forma alternativa:
+\begin{BoxVerbatim}
+SELECT *
+    FROM clima INNER JOIN cidades ON (clima.cidade = cidades.nome);
+\end{BoxVerbatim}
+
+A utilização desta sintaxe não é tão comum quanto a usada acima, mas é mostrada para ajudar a entender os próximos tópicos.
+
+Agora vamos descobrir como se faz para obter as linhas de Hayward. Desejamos o seguinte: que a consulta varra a tabela clima e, para cada uma de suas linhas, encontre a linha correspondente na tabela cidades. Se não for encontrada nenhuma linha correspondente, desejamos que sejam colocados "valores vazios" nas colunas da tabela cidades. Este tipo de consulta é chamada de junção externa (outer join). As junções vistas até agora foram junções internas (inner join). O comando então fica assim:
+\begin{BoxVerbatim}
+SELECT *
+    FROM clima LEFT OUTER JOIN cidades ON (clima.cidade = cidades.nome);
+
+
+cidade        |temp_min |temp_max | prcp |    data    |    nome      | localizacao
+______________|_________|_________|______|____________|______________|____________
+Hayward       |      37 |      54 |      | 1994-11-29 |              |
+São Francisco |      46 |      50 | 0.25 | 1994-11-27 |São Francisco | (-194,53)
+São Francisco |      43 |      57 |    0 | 1994-11-29 |São Francisco | (-194,53)
+(3 linhas)
+\end{BoxVerbatim}
+
+Esta consulta é chamada de junção externa esquerda (left outer join), porque a tabela mencionada à esquerda do operador de junção terá cada uma de suas linhas aparecendo na saída pelo menos uma vez, enquanto a tabela à direita terá somente as linhas correspondendo a alguma linha da tabela à esquerda aparecendo na saída. Ao listar uma linha da tabela à esquerda, para a qual não existe nenhuma linha correspondente na tabela à direita, são colocados valores vazios (nulos) nas colunas da tabela à direita.
+
+Também é possível fazer a junção da tabela consigo mesma. Isto é chamado de autojunção (self join). Como exemplo, suponha que desejamos descobrir todas as linhas de clima que estão no intervalo de temperatura de outros registros de clima. Para isso é necessário comparar as colunas temp\_min e temp\_max de cada linha da tabela clima com as colunas temp\_min e temp\_max de todos as outras linhas da mesma tabela clima, o que pode ser feito utilizando a seguinte consulta:
+\begin{BoxVerbatim}
+SELECT C1.cidade, C1.temp_min AS menor, C1.temp_max AS maior,
+    C2.cidade, C2.temp_min AS menor, C2.temp_max AS maior
+    FROM clima C1, clima C2
+    WHERE C1.temp_min < C2.temp_min
+    AND C1.temp_max > C2.temp_max;
+
+
+
+ cidade          | menor | maior |     cidade    | menor | maior
+   --------------+-------+-------+---------------+-------+-------
+ São Francisco   |    43 |    57 | São Francisco |    46 |    50
+ Hayward         |    37 |    54 | São Francisco |    46 |    50
+ (2 linhas)
+\end{BoxVerbatim}
+
+A tabela clima teve seu nome mudado para C1 e C2, para ser possível distinguir o lado esquerdo e o lado direito da junção. Estes tipos de "aliases" também podem ser utilizados em outras consultas para reduzir a digitação como, por exemplo:
+
+\begin{BoxVerbatim}
+SELECT *
+    FROM clima w, cidades c
+    WHERE w.cidade = c.nome;
+\end{BoxVerbatim}
+Será encontrada esta forma de abreviar com bastante freqüência.
+
+\section{ Funções de agregação }\setcounter{SteP}{1}
+Como a maioria dos produtos de banco de dados relacional, o PostgreSQL suporta funções de agregação. Uma função de agregação computa um único resultado para várias linhas de entrada. Por exemplo, existem funções de agregação para contar (count), somar (sum), calcular a média (avg), o valor máximo (max) e o valor mínimo (min) para um conjunto de linhas.
+
+Para servir de exemplo, é possível encontrar a maior temperatura mínima observada em qualquer lugar usando
+\begin{BoxVerbatim}
+SELECT max(temp_min) FROM clima;
+
+ max
+ -----
+   46
+ (1 linha)
 \end{BoxVerbatim}

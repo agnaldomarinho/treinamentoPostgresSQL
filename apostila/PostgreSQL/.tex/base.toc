@@ -20,4 +20,8 @@
 \contentsline {section}{\numberline {5.1}A Linguagem SQL}{12}{section.5.1}
 \contentsline {section}{\numberline {5.2}Introdu\IeC {\c c}\IeC {\~a}o}{12}{section.5.2}
 \contentsline {section}{\numberline {5.3}Cria\IeC {\c c}\IeC {\~a}o de Tabelas}{12}{section.5.3}
-\contentsline {chapter}{\numberline {A}Licen\IeC {\c c}a}{13}{appendix.A}
+\contentsline {section}{\numberline {5.4}Inser\IeC {\c c}\IeC {\~a}o de linhas em tablea}{13}{section.5.4}
+\contentsline {section}{\numberline {5.5}Consultar tabelas}{14}{section.5.5}
+\contentsline {section}{\numberline {5.6}Junc\IeC {\~o}es entre tabelas}{16}{section.5.6}
+\contentsline {section}{\numberline {5.7} Fun\IeC {\c c}\IeC {\~o}es de agrega\IeC {\c c}\IeC {\~a}o }{18}{section.5.7}
+\contentsline {chapter}{\numberline {A}Licen\IeC {\c c}a}{19}{appendix.A}

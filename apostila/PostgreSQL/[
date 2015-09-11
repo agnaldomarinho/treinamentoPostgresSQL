@@ -209,10 +209,10 @@ SELECT *
 
 
 
-    cidade   |temp_min|temp_max|prcp|   data   |     nome    | Localização
-_____________|________|________|____|__________|_____________|____________
-São Francisco|      46|      50|0.25|1994-11-27|São Francisco|(-194, 53)
-São Francisco|      43|      57|  0 |1994-11-29|São Francisco|(-194, 53)
+    cidade     | temp_min | temp_max | prcp |    data    |      nome     |  Localização
+_______________|__________|__________|______|____________|_______________|_____________
+São Francisco  |       46 |       50 | 0.25 | 1994-11-27 | São Francisco | (-194, 53)
+São Francisco  |       43 |       57 |   0  | 1994-11-29 | São Francisco | (-194, 53)
 (2 linhas)
 </comando>
 
@@ -251,51 +251,10 @@ SELECT *
     FROM clima LEFT OUTER JOIN cidades ON (clima.cidade = cidades.nome);
 
 
-cidade        |temp_min |temp_max | prcp |    data    |    nome      | localizacao
-______________|_________|_________|______|____________|______________|____________
-Hayward       |      37 |      54 |      | 1994-11-29 |              |
-São Francisco |      46 |      50 | 0.25 | 1994-11-27 |São Francisco | (-194,53)
-São Francisco |      43 |      57 |    0 | 1994-11-29 |São Francisco | (-194,53)
+cidade          | temp_min | temp_max | prcp |    data    |     nome      | localizacao
+________________|__________|__________|______|____________|_______________|______________-
+Hayward         |       37 |       54 |      | 1994-11-29 |               |
+São Francisco   |       46 |       50 | 0.25 | 1994-11-27 | São Francisco | (-194,53)
+São Francisco   |       43 |       57 |    0 | 1994-11-29 | São Francisco | (-194,53)
 (3 linhas)
-</comando>
-
-Esta consulta é chamada de junção externa esquerda (left outer join), porque a tabela mencionada à esquerda do operador de junção terá cada uma de suas linhas aparecendo na saída pelo menos uma vez, enquanto a tabela à direita terá somente as linhas correspondendo a alguma linha da tabela à esquerda aparecendo na saída. Ao listar uma linha da tabela à esquerda, para a qual não existe nenhuma linha correspondente na tabela à direita, são colocados valores vazios (nulos) nas colunas da tabela à direita.
-
-Também é possível fazer a junção da tabela consigo mesma. Isto é chamado de autojunção (self join). Como exemplo, suponha que desejamos descobrir todas as linhas de clima que estão no intervalo de temperatura de outros registros de clima. Para isso é necessário comparar as colunas temp_min e temp_max de cada linha da tabela clima com as colunas temp_min e temp_max de todos as outras linhas da mesma tabela clima, o que pode ser feito utilizando a seguinte consulta:
-<comando>
-SELECT C1.cidade, C1.temp_min AS menor, C1.temp_max AS maior,
-    C2.cidade, C2.temp_min AS menor, C2.temp_max AS maior
-    FROM clima C1, clima C2
-    WHERE C1.temp_min < C2.temp_min
-    AND C1.temp_max > C2.temp_max;
-
-
-
- cidade          | menor | maior |     cidade    | menor | maior
-   --------------+-------+-------+---------------+-------+-------
- São Francisco   |    43 |    57 | São Francisco |    46 |    50
- Hayward         |    37 |    54 | São Francisco |    46 |    50
- (2 linhas)
-</comando>
-
-A tabela clima teve seu nome mudado para C1 e C2, para ser possível distinguir o lado esquerdo e o lado direito da junção. Estes tipos de "aliases" também podem ser utilizados em outras consultas para reduzir a digitação como, por exemplo:
-
-<comando>
-SELECT *
-    FROM clima w, cidades c
-    WHERE w.cidade = c.nome;
-</comando>
-Será encontrada esta forma de abreviar com bastante freqüência.
-
-<subsecao> Funções de agregação </subsecao>
-Como a maioria dos produtos de banco de dados relacional, o PostgreSQL suporta funções de agregação. Uma função de agregação computa um único resultado para várias linhas de entrada. Por exemplo, existem funções de agregação para contar (count), somar (sum), calcular a média (avg), o valor máximo (max) e o valor mínimo (min) para um conjunto de linhas.
-
-Para servir de exemplo, é possível encontrar a maior temperatura mínima observada em qualquer lugar usando
-<comando>
-SELECT max(temp_min) FROM clima;
-
- max
- -----
-   46
- (1 linha)
 </comando>

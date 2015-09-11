@@ -1,17 +1,17 @@
 
-### Apostilator is running: Wed Sep  9 15:52:07 2015
+### Apostilator is running: Fri Sep 11 14:59:21 2015
 
 
-### Apostilator::create_symlinks(): Wed Sep  9 15:52:07 2015
+### Apostilator::create_symlinks(): Fri Sep 11 14:59:21 2015
 
 
-### Apostilator::convert_apostila(): Wed Sep  9 15:52:07 2015
+### Apostilator::convert_apostila(): Fri Sep 11 14:59:21 2015
 
 
-### Apostilator::convert_latex2pdf(): Wed Sep  9 15:52:07 2015
+### Apostilator::convert_latex2pdf(): Fri Sep 11 14:59:21 2015
 
 
-### Apostilator::create_bibliography(): Wed Sep  9 15:52:09 2015
+### Apostilator::create_bibliography(): Fri Sep 11 14:59:22 2015
 
 Linux) (preloaded format=pdflatex)
  restricted \write18 enabled.
@@ -136,11 +136,11 @@ Cap\'{\i }tulo 4.
 [10] (/usr/share/texmf-dist/tex/latex/ucs/data/uni-32.def)
 (/usr/share/texmf-dist/tex/latex/ucs/data/uni-1.def)) (./50_sql.tex [11]
 Cap\'{\i }tulo 5.
-)) [12]
+[12] [13] [14] [15] [16] [17])) [18]
 No file base.bbl.
 (./Appendix.tex (./98_GFDL_license.tex
 Ap\^endice A.
-)) [13] (./base.aux)
+)) [19] (./base.aux)
 
 Package rerunfilecheck Warning: File `base.out' has changed.
 (rerunfilecheck)                Rerun to get outlines right
@@ -157,7 +157,7 @@ dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-dist/fonts/type1
 ts/cm/cmss17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.p
 fb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on base.pdf (13 pages, 192696 bytes).
+Output written on base.pdf (19 pages, 212652 bytes).
 Transcript written on base.log.
 This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/Arch Linux) (preloaded format=pdflatex)
  restricted \write18 enabled.
@@ -254,7 +254,7 @@ babelbib: Set language for keywords in the bibliography fixed to brazil
 (/usr/share/texmf-dist/tex/latex/hyperref/nameref.sty
 (/usr/share/texmf-dist/tex/generic/oberdiek/gettitlestring.sty)) (./base.out)
 (./base.out) (./titlepage.tex
-<titlepage.png, id=92, 1201.48875pt x 438.63875pt> <use titlepage.png>
+<titlepage.png, id=108, 1201.48875pt x 438.63875pt> <use titlepage.png>
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd)
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd)
 (/usr/share/texmf-dist/tex/latex/base/ulasy.fd)) [1{/var/lib/texmf/fonts/map/pd
@@ -282,11 +282,11 @@ Cap\'{\i }tulo 4.
 [10] (/usr/share/texmf-dist/tex/latex/ucs/data/uni-32.def)
 (/usr/share/texmf-dist/tex/latex/ucs/data/uni-1.def)) (./50_sql.tex [11]
 Cap\'{\i }tulo 5.
-)) [12]
+[12] [13] [14] [15] [16] [17])) [18]
 No file base.bbl.
 (./Appendix.tex (./98_GFDL_license.tex
 Ap\^endice A.
-)) [13] (./base.aux) )
+)) [19] (./base.aux) )
 (see the transcript file for additional information)</usr/share/texmf-dist/font
 s/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public
 /amsfonts/cm/cmbxsl10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm
@@ -297,7 +297,7 @@ dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-dist/fonts/type1
 ts/cm/cmss17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.p
 fb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on base.pdf (13 pages, 196071 bytes).
+Output written on base.pdf (19 pages, 216199 bytes).
 Transcript written on base.log.
 This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/Arch Linux) (preloaded format=pdflatex)
  restricted \write18 enabled.
@@ -394,7 +394,7 @@ babelbib: Set language for keywords in the bibliography fixed to brazil
 (/usr/share/texmf-dist/tex/latex/hyperref/nameref.sty
 (/usr/share/texmf-dist/tex/generic/oberdiek/gettitlestring.sty)) (./base.out)
 (./base.out) (./titlepage.tex
-<titlepage.png, id=92, 1201.48875pt x 438.63875pt> <use titlepage.png>
+<titlepage.png, id=108, 1201.48875pt x 438.63875pt> <use titlepage.png>
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd)
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd)
 (/usr/share/texmf-dist/tex/latex/base/ulasy.fd)) [1{/var/lib/texmf/fonts/map/pd
@@ -422,11 +422,11 @@ Cap\'{\i }tulo 4.
 [10] (/usr/share/texmf-dist/tex/latex/ucs/data/uni-32.def)
 (/usr/share/texmf-dist/tex/latex/ucs/data/uni-1.def)) (./50_sql.tex [11]
 Cap\'{\i }tulo 5.
-)) [12]
+[12] [13] [14] [15] [16] [17])) [18]
 No file base.bbl.
 (./Appendix.tex (./98_GFDL_license.tex
 Ap\^endice A.
-)) [13] (./base.aux) )
+)) [19] (./base.aux) )
 (see the transcript file for additional information)</usr/share/texmf-dist/font
 s/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public
 /amsfonts/cm/cmbxsl10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm
@@ -437,5 +437,5 @@ dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-dist/fonts/type1
 ts/cm/cmss17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.p
 fb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on base.pdf (13 pages, 196071 bytes).
+Output written on base.pdf (19 pages, 216199 bytes).
 Transcript written on base.log.
