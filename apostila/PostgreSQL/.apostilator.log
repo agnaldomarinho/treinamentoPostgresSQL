@@ -1,17 +1,17 @@
 
-### Apostilator is running: Fri Sep 11 15:53:10 2015
+### Apostilator is running: Fri Sep 11 16:33:25 2015
 
 
-### Apostilator::create_symlinks(): Fri Sep 11 15:53:10 2015
+### Apostilator::create_symlinks(): Fri Sep 11 16:33:25 2015
 
 
-### Apostilator::convert_apostila(): Fri Sep 11 15:53:10 2015
+### Apostilator::convert_apostila(): Fri Sep 11 16:33:25 2015
 
 
-### Apostilator::convert_latex2pdf(): Fri Sep 11 15:53:10 2015
+### Apostilator::convert_latex2pdf(): Fri Sep 11 16:33:25 2015
 
 
-### Apostilator::create_bibliography(): Fri Sep 11 15:53:11 2015
+### Apostilator::create_bibliography(): Fri Sep 11 16:33:26 2015
 
 Linux) (preloaded format=pdflatex)
  restricted \write18 enabled.
@@ -140,11 +140,13 @@ Cap\'{\i }tulo 5.
 Overfull \hbox (29.1803pt too wide) in paragraph at lines 348--349
 []\OT1/cmr/m/n/12 que mos-tra os mes-mos re-sul-ta-dos, mas ape-nas para as ci-
 da-des que pos-suem os va-lo-res de max(temp[]min)
-[19])) [20]
+[19]) (./60_avancadas.tex [20]
+Cap\'{\i }tulo 6.
+[21] [22] [23] [24])) [25] [26]
 No file base.bbl.
 (./Appendix.tex (./98_GFDL_license.tex
 Ap\^endice A.
-)) [21] (./base.aux)
+)) [27] (./base.aux)
 
 Package rerunfilecheck Warning: File `base.out' has changed.
 (rerunfilecheck)                Rerun to get outlines right
@@ -161,7 +163,7 @@ dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-dist/fonts/type1
 ts/cm/cmss17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.p
 fb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on base.pdf (21 pages, 218312 bytes).
+Output written on base.pdf (27 pages, 235407 bytes).
 Transcript written on base.log.
 This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/Arch Linux) (preloaded format=pdflatex)
  restricted \write18 enabled.
@@ -258,43 +260,45 @@ babelbib: Set language for keywords in the bibliography fixed to brazil
 (/usr/share/texmf-dist/tex/latex/hyperref/nameref.sty
 (/usr/share/texmf-dist/tex/generic/oberdiek/gettitlestring.sty)) (./base.out)
 (./base.out) (./titlepage.tex
-<titlepage.png, id=116, 1201.48875pt x 438.63875pt> <use titlepage.png>
+<titlepage.png, id=144, 1201.48875pt x 438.63875pt> <use titlepage.png>
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd)
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd)
 (/usr/share/texmf-dist/tex/latex/base/ulasy.fd)) [1{/var/lib/texmf/fonts/map/pd
-ftex/updmap/pdftex.map} <./titlepage.png>] (./base.toc) [2] (./Chapters.tex
-(./10_intro_software.tex
-Cap\'{\i }tulo 1.
-
-Overfull \hbox (4.11124pt too wide) in paragraph at lines 54--54
-[]\OT1/cmr/bx/n/17.28 Compila^^Xc~ao de \OT1/cmr/m/it/17.28 soft-ware \OT1/cmr/
-bx/n/17.28 X \OT1/cmr/m/it/17.28 soft-ware \OT1/cmr/bx/n/17.28 da dis-tri-bui^^
-Xc~ao/sistema
-[3] (/usr/share/texmf-dist/tex/latex/base/omscmr.fd)
+ftex/updmap/pdftex.map} <./titlepage.png>] (./base.toc [2])
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[4]) (./20_banco.tex [5]
+[3] (./Chapters.tex (./10_intro_software.tex
+Cap\'{\i }tulo 1.
+
+Overfull \hbox (4.11124pt too wide) in paragraph at lines 54--54
+[]\OT1/cmr/bx/n/17.28 Compila^^Xc~ao de \OT1/cmr/m/it/17.28 soft-ware \OT1/cmr/
+bx/n/17.28 X \OT1/cmr/m/it/17.28 soft-ware \OT1/cmr/bx/n/17.28 da dis-tri-bui^^
+Xc~ao/sistema
+[4] (/usr/share/texmf-dist/tex/latex/base/omscmr.fd) [5]) (./20_banco.tex
+[6]
 Cap\'{\i }tulo 2.
-) (./30_postgresql.tex [6]
+) (./30_postgresql.tex [7]
 Cap\'{\i }tulo 3.
-[7] [8]) (./40_postgresql-intro.tex [9]
+[8] [9]) (./40_postgresql-intro.tex [10]
 Cap\'{\i }tulo 4.
-[10] (/usr/share/texmf-dist/tex/latex/ucs/data/uni-32.def)
-(/usr/share/texmf-dist/tex/latex/ucs/data/uni-1.def)) (./50_sql.tex [11]
+[11] (/usr/share/texmf-dist/tex/latex/ucs/data/uni-32.def)
+(/usr/share/texmf-dist/tex/latex/ucs/data/uni-1.def)) (./50_sql.tex [12]
 Cap\'{\i }tulo 5.
-[12] [13] [14] [15] [16] [17] [18]
+[13] [14] [15] [16] [17] [18] [19]
 Overfull \hbox (29.1803pt too wide) in paragraph at lines 348--349
 []\OT1/cmr/m/n/12 que mos-tra os mes-mos re-sul-ta-dos, mas ape-nas para as ci-
 da-des que pos-suem os va-lo-res de max(temp[]min)
-[19])) [20]
+[20]) (./60_avancadas.tex [21]
+Cap\'{\i }tulo 6.
+[22] [23] [24] [25])) [26] [27]
 No file base.bbl.
 (./Appendix.tex (./98_GFDL_license.tex
 Ap\^endice A.
-)) [21] (./base.aux) )
+)) [28] (./base.aux) )
 (see the transcript file for additional information)</usr/share/texmf-dist/font
 s/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public
 /amsfonts/cm/cmbxsl10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm
@@ -305,7 +309,7 @@ dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-dist/fonts/type1
 ts/cm/cmss17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.p
 fb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on base.pdf (21 pages, 222220 bytes).
+Output written on base.pdf (28 pages, 240577 bytes).
 Transcript written on base.log.
 This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/Arch Linux) (preloaded format=pdflatex)
  restricted \write18 enabled.
@@ -402,43 +406,45 @@ babelbib: Set language for keywords in the bibliography fixed to brazil
 (/usr/share/texmf-dist/tex/latex/hyperref/nameref.sty
 (/usr/share/texmf-dist/tex/generic/oberdiek/gettitlestring.sty)) (./base.out)
 (./base.out) (./titlepage.tex
-<titlepage.png, id=116, 1201.48875pt x 438.63875pt> <use titlepage.png>
+<titlepage.png, id=144, 1201.48875pt x 438.63875pt> <use titlepage.png>
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd)
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd)
 (/usr/share/texmf-dist/tex/latex/base/ulasy.fd)) [1{/var/lib/texmf/fonts/map/pd
-ftex/updmap/pdftex.map} <./titlepage.png>] (./base.toc) [2] (./Chapters.tex
-(./10_intro_software.tex
-Cap\'{\i }tulo 1.
-
-Overfull \hbox (4.11124pt too wide) in paragraph at lines 54--54
-[]\OT1/cmr/bx/n/17.28 Compila^^Xc~ao de \OT1/cmr/m/it/17.28 soft-ware \OT1/cmr/
-bx/n/17.28 X \OT1/cmr/m/it/17.28 soft-ware \OT1/cmr/bx/n/17.28 da dis-tri-bui^^
-Xc~ao/sistema
-[3] (/usr/share/texmf-dist/tex/latex/base/omscmr.fd)
+ftex/updmap/pdftex.map} <./titlepage.png>] (./base.toc [2])
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[4]) (./20_banco.tex [5]
+[3] (./Chapters.tex (./10_intro_software.tex
+Cap\'{\i }tulo 1.
+
+Overfull \hbox (4.11124pt too wide) in paragraph at lines 54--54
+[]\OT1/cmr/bx/n/17.28 Compila^^Xc~ao de \OT1/cmr/m/it/17.28 soft-ware \OT1/cmr/
+bx/n/17.28 X \OT1/cmr/m/it/17.28 soft-ware \OT1/cmr/bx/n/17.28 da dis-tri-bui^^
+Xc~ao/sistema
+[4] (/usr/share/texmf-dist/tex/latex/base/omscmr.fd) [5]) (./20_banco.tex
+[6]
 Cap\'{\i }tulo 2.
-) (./30_postgresql.tex [6]
+) (./30_postgresql.tex [7]
 Cap\'{\i }tulo 3.
-[7] [8]) (./40_postgresql-intro.tex [9]
+[8] [9]) (./40_postgresql-intro.tex [10]
 Cap\'{\i }tulo 4.
-[10] (/usr/share/texmf-dist/tex/latex/ucs/data/uni-32.def)
-(/usr/share/texmf-dist/tex/latex/ucs/data/uni-1.def)) (./50_sql.tex [11]
+[11] (/usr/share/texmf-dist/tex/latex/ucs/data/uni-32.def)
+(/usr/share/texmf-dist/tex/latex/ucs/data/uni-1.def)) (./50_sql.tex [12]
 Cap\'{\i }tulo 5.
-[12] [13] [14] [15] [16] [17] [18]
+[13] [14] [15] [16] [17] [18] [19]
 Overfull \hbox (29.1803pt too wide) in paragraph at lines 348--349
 []\OT1/cmr/m/n/12 que mos-tra os mes-mos re-sul-ta-dos, mas ape-nas para as ci-
 da-des que pos-suem os va-lo-res de max(temp[]min)
-[19])) [20]
+[20]) (./60_avancadas.tex [21]
+Cap\'{\i }tulo 6.
+[22] [23] [24] [25])) [26] [27]
 No file base.bbl.
 (./Appendix.tex (./98_GFDL_license.tex
 Ap\^endice A.
-)) [21] (./base.aux) )
+)) [28] (./base.aux) )
 (see the transcript file for additional information)</usr/share/texmf-dist/font
 s/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public
 /amsfonts/cm/cmbxsl10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm
@@ -449,5 +455,5 @@ dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-dist/fonts/type1
 ts/cm/cmss17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.p
 fb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on base.pdf (21 pages, 222220 bytes).
+Output written on base.pdf (28 pages, 240416 bytes).
 Transcript written on base.log.

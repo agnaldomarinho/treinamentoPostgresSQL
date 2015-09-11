@@ -1,0 +1,220 @@
+\newpage \chapter{Funcionalidades avançadas}\setcounter{SteP}{1}
+
+\section{Introdução}\setcounter{SteP}{1}
+Neste capítulo serão mostradas algumas funcionalidades mais avançadas da linguagem SQL que simplificam a gerência,
+e evitam que os dados sejam perdidos ou danificados. No final serão vistas algumas extensões do PostgreSQL.
+
+
+
+\section{Visões}\setcounter{SteP}{1}
+Supondo que a consulta combinando os registros de clima com a localização das cidades seja de particular 
+interesse para um projeto, mas que não se deseja digitar esta consulta toda vez que for necessária, então 
+é possível criar uma visão baseada na consulta, atribuindo um nome a esta consulta pelo qual será possível 
+referenciá-la como se fosse uma tabela comum.
+
+\begin{BoxVerbatim}
+CREATE VIEW minha_visao AS
+    SELECT cidade, temp_min, temp_max, prcp, data, localizacao
+    FROM clima, cidades
+       WHERE cidade = nome;
+
+SELECT * FROM minha_visao;
+\end{BoxVerbatim}
+
+Fazer livre uso de visões é um aspecto chave de um bom projeto de banco de dados SQL. As visões permitem 
+encapsular detalhes das estruturas das tabelas, que podem mudar à medida que os aplicativos evoluem, atrás de interfaces consistentes.
+
+As visões podem ser utilizadas em quase todos os lugares onde uma tabela real pode ser utilizada. Construir visões baseadas em visões não é raro.
+
+
+
+\section{Chaves estrangeiras}\setcounter{SteP}{1}
+Considere o seguinte problema: Desejamos ter certeza que não serão inseridas linhas na tabela clima sem que haja um registro correspondente na tabela cidades. Isto é chamado de manter a integridade referencial dos dados. Em sistemas de banco de dados muito simples poderia ser implementado (caso fosse) olhando primeiro a tabela cidades para verificar se existe a linha correspondente e, depois, inserir ou rejeitar a nova linha de clima. Esta abordagem possui vários problemas, e é muito inconveniente, por isso o PostgreSQL pode realizar esta operação por você.
+
+A nova declaração das tabelas ficaria assim:
+
+\begin{BoxVerbatim}
+CREATE TABLE cidades (
+       cidade      varchar(80) PRIMARY KEY,
+       localizacao point
+);
+
+CREATE TABLE clima (
+        cidade     varchar(80) REFERENCES cidades(cidade),
+        temp_min   int,
+        temp_max   int,
+        prcp       real,
+        data       date
+);
+\end{BoxVerbatim}
+
+Agora, ao se tentar inserir uma linha inválida:
+\begin{BoxVerbatim}
+INSERT INTO clima VALUES ('Berkeley', 45, 53, 0.0, '1994-11-28');
+
+ERROR:  insert or update on table "clima" violates foreign key constraint "clima_cidade_fkey"
+DETAIL:  Key (cidade)=(Berkeley) is not present in table "cidades".
+
+-- Tradução da mensagem
+
+ERRO:  inserção ou atualização na tabela "clima" viola a restrição de chave estrangeira "clima_cidade_fkey"
+DETALHE:  Chave (cidade)=(Berkeley) não está presente na tabela "cidades".
+\end{BoxVerbatim}
+
+O comportamento das chaves estrangeiras pode receber ajuste fino no aplicativo. Não iremos além deste exemplo simples neste tutorial. 
+Com certeza o uso correto de chaves estrangeiras melhora a qualidade dos aplicativos de banco de dados, portanto incentivamos muito que se aprenda a usá-las.
+
+
+\section{Transações}\setcounter{SteP}{1}
+Transação é um conceito fundamental de todo sistema de banco de dados. O ponto essencial da transação é englobar vários 
+passos em uma única operação de tudo ou nada. Os estados intermediários entre os passos não são vistos pelas demais 
+transações simultâneas e, se ocorrer alguma falha que impeça a transação chegar até o fim, 
+então nenhum dos passos intermediários irá afetar o banco de dados de forma alguma
+
+Por exemplo, considere um banco de dados de uma instituição financeira contendo o saldo da conta corrente de vários 
+clientes, assim como o saldo total dos depósitos de cada agência. Suponha que se deseje transferir 
+\$100.00 da conta da Alice para a conta do Bob. Simplificando ao extremo, os comandos SQL para esta operação seriam:
+
+\begin{BoxVerbatim}
+UPDATE conta_corrente SET saldo = saldo - 100.00
+    WHERE nome = 'Alice';
+UPDATE filiais SET saldo = saldo - 100.00
+    WHERE nome = (SELECT nome_filial FROM conta_corrente WHERE nome = 'Alice');
+UPDATE conta_corrente SET saldo = saldo + 100.00
+    WHERE nome = 'Bob';
+UPDATE filiais SET saldo = saldo + 100.00
+    WHERE nome = (SELECT nome_filial FROM conta_corrente WHERE nome = 'Bob');
+\end{BoxVerbatim}
+
+Existirem várias atualizações distintas envolvidas para realizar esta operação tão simples. A contabilidade do banco 
+quer ter certeza que todas estas atualizações foram realizadas, ou que nenhuma delas foi realizada.
+Com certeza não é interessante que uma falha no sistema faça com que Bob receba \$100.00 que não foi debitado da Alice. 
+É necessário garantir que, caso aconteça algo errado no meio da operação, nenhum dos passos executados até este ponto irá valer.
+Agrupar as atualizações em uma {\it transação} dá esta garantia. Uma transação é dita como sendo {\it atômica}:
+do ponto de vista das outras transações, ou a transação acontece por inteiro, ou nada acontece.
+
+utra propriedade importante dos bancos de dados transacionais está muito ligada à noção de atualizações atômicas: 
+quando várias transações estão executando ao mesmo tempo, nenhuma delas deve enxergar as alterações incompletas efetuadas pelas outras.
+
+
+No PostgreSQL a transação é definida envolvendo os comandos SQL da transação pelos comandos {\bf BEGIN} e {\bf COMMIT}. Sendo assim, a nossa transação bancária ficaria:
+\begin{BoxVerbatim}
+BEGIN;
+UPDATE conta_corrente SET saldo = saldo - 100.00
+    WHERE nome = 'Alice';
+    -- etc etc
+COMMIT;
+\end{BoxVerbatim}
+
+Se no meio da transação for decidido que esta não deve ser efetivada (talvez porque tenha sido visto que o saldo da Alice ficou negativo),
+pode ser usado o comando {\bf ROLLBACK} em vez do {\bf COMMIT} para fazer com que todas as atualizações sejam canceladas.
+
+O PostgreSQL, na verdade, trata todo comando SQL como sendo executado dentro de uma transação. Se não for emitido o comando BEGIN, então cada comando possuirá um BEGIN implícito e, se der tudo certo, um COMMIT, envolvendo-o. Um grupo de comandos envolvidos por um BEGIN e um COMMIT é algumas vezes chamado de bloco de transação.
+
+
+ possível controlar os comandos na transação de uma forma mais granular utilizando os pontos de salvamento (savepoints). Os pontos de salvamento permitem descartar partes da transação seletivamente, e efetivar as demais partes. Após definir o ponto de salvamento através da instrução SAVEPOINT, é possível cancelar a transação até o ponto de salvamento, se for necessário, usando ROLLBACK TO. Todas as alterações no banco de dados efetuadas pela transação entre o estabelecimento do ponto de salvamento e o cancelamento são descartadas, mas as alterações efetuadas antes do ponto de salvamento são mantidas.
+
+ Após cancelar até o ponto de salvamento, este ponto de salvamento continua definido e, portanto, é possível cancelar várias vezes. Ao contrário, havendo certeza que não vai ser mais necessário cancelar até o ponto de salvamento, o ponto de salvamento poderá ser liberado, para que o sistema possa liberar alguns recursos. Deve-se ter em mente que liberar ou cancelar até um ponto de salvamento libera, automaticamente, todos os pontos de salvamento definidos após o mesmo.
+
+ Tudo isto acontece dentro do bloco de transação e, portanto, nada disso é visto pelas outras sessões do banco de dados. Quando o bloco de transação é efetivado, as ações efetivadas se tornam visíveis como uma unidade para as outras sessões, enquanto as ações desfeitas nunca se tornam visíveis.
+
+ Recordando o banco de dados da instituição financeira, suponha que tivesse sido debitado \$100.00 da conta da Alice e creditado na conta do Bob, e descoberto em seguida que era para ser creditado na conta do Wally. Isso poderia ser feito utilizando um ponto de salvamento, conforme mostrado abaixo:
+
+\begin{BoxVerbatim}
+EGIN;
+UPDATE conta_corrente SET saldo = saldo - 100.00
+    WHERE nome = 'Alice';
+SAVEPOINT meu_ponto_de_salvamento;
+UPDATE conta_corrente SET saldo = saldo + 100.00
+    WHERE nome = 'Bob';
+-- uai ... o certo é na conta do Wally
+ROLLBACK TO meu_ponto_de_salvamento;
+UPDATE conta_corrente SET saldo = saldo + 100.00
+    WHERE nome = 'Wally';
+COMMIT;
+\end{BoxVerbatim}
+
+Obviamente este exemplo está simplificado ao extremo, mas é possível efetuar um grau elevado de controle sobre a transação através do uso de pontos de salvamento. Além disso, a instrução ROLLBACK TO é a única forma de obter novamente o controle sobre um bloco de transação colocado no estado interrompido pelo sistema devido a um erro, fora cancelar completamente e começar tudo de novo.
+
+\section{Herança}\setcounter{SteP}{1}
+Herança é um conceito de banco de dados orientado a objeto, que abre novas possibilidades interessantes ao projeto de banco de dados.
+
+Vamos criar duas tabelas: a tabela cidades e a tabela capitais. Como é natural, as capitais também são cidades e, portanto, deve existir alguma maneira para mostrar implicitamente as capitais quando todas as cidades são mostradas. Se formos bastante perspicazes, poderemos criar um esquema como este:
+\begin{BoxVerbatim}
+CREATE TABLE capitais (
+   nome       text,
+   populacao  real,
+   altitude   int,    -- (em pés)
+   estado     char(2)
+);
+
+CREATE TABLE interior (
+   nome       text,
+   populacao  real,
+   altitude   int     -- (em pés)
+);
+
+CREATE VIEW cidades AS
+   SELECT nome, populacao, altitude FROM capitais
+      UNION
+   SELECT nome, populacao, altitude FROM interior;
+\end{BoxVerbatim}
+
+Este esquema funciona bem para as consultas, mas não é bom quando é necessário atualizar várias linhas, entre outras coisas.
+
+Esta é uma solução melhor:
+
+\begin{BoxVerbatim}
+CREATE TABLE cidades (
+   nome       text,
+   populacao  real,
+   altitude   int,    -- (em pés)
+);
+
+CCREATE TABLE capitais (
+  estado      char(2)
+) INHERITS (cidades);
+\end{BoxVerbatim}
+
+Neste caso, as linhas da tabela capitais herdam todas as colunas (nome, populacao e altitude) da sua tabela ancestral cidades. O tipo da coluna nome é {\it text},
+um tipo nativo do PostgreSQL para cadeias de caracteres de tamanho variável. As capitais dos estados possuem uma coluna a mais chamada estado, que armazena a sigla do estado. No PostgreSQL uma tabela pode herdar de nenhuma, de uma, ou de várias tabelas.
+
+Por exemplo, a consulta abaixo retorna os nomes de todas as cidades, incluindo as capitais dos estados, localizadas a uma altitude superior a 500 pés:
+\begin{BoxVerbatim}
+SSELECT nome, altitude
+  FROM cidades
+  WHERE altitude > 500;
+
+
+  nome    | altitude
+----------+----------
+Las Vegas |     2174
+Mariposa  |     1953
+Madison   |      845
+(3 linhas)
+\end{BoxVerbatim}
+
+Por outro lado, a consulta abaixo retorna todas as cidades que não são capitais de estado e estão situadas a uma altitude superior a 500 pés:
+
+\begin{BoxVerbatim}
+SELECT nome, altitude
+    FROM ONLY cidades
+    WHERE altitude > 500;
+
+ 
+  nome    | altitude
+----------+----------
+Las Vegas |     2174
+Mariposa  |     1953
+(2 linhas)
+\end{BoxVerbatim}
+
+a consulta acima a palavra chave ONLY antes de cidades indica que a consulta deve ser efetuada apenas na tabela cidades, sem incluir as tabelas abaixo de cidades na hierarquia de herança. Muitos comandos mostrados até agora — SELECT, UPDATE e DELETE — permitem usar a notação ONLY.
+
+{\bf Nota:} Embora a hierarquia seja útil com freqüência, sua utilidade é limitada porque não está integrada com as restrições de unicidade e de chave estrangeira. 
+
+
+\section{Conclusão}\setcounter{SteP}{1}
+O PostgreSQL possui muitas funcionalidades não abordadas neste tutorial introdutório, o qual está orientado para os usuários com pouca experiência na linguagem SQL. Estas funcionalidades são mostradas com mais detalhes no restante desta documentação.
+
+Se sentir necessidade de mais material introdutório, por favor visite o sítio do PostgreSQL na Web e o sítio PostgreSQLBrasil para obter indicações sobre onde encontrar este material.
