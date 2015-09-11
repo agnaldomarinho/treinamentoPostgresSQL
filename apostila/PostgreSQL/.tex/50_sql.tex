@@ -299,3 +299,103 @@ SELECT max(temp_min) FROM clima;
    46
  (1 linha)
 \end{BoxVerbatim}
+
+Se for desejado saber a cidade (ou cidades) onde esta temperatura ocorreu pode-se tentar usar
+\begin{BoxVerbatim}
+SELECT cidade FROM clima WHERE temp_min = max(temp_min);     ERRADO
+\end{BoxVerbatim}
+
+mas não vai funcionar, porque a função de agregação max não pode ser usada na cláusula WHERE (Esta restrição existe porque a cláusula WHERE determina quais linhas serão incluídas no cálculo da agregação e, neste caso, teria que ser avaliada antes das funções de agregação serem computadas). Entretanto, como é geralmente o caso, a consulta pode ser reformulada para obter o resultado pretendido, o que será feito por meio de uma subconsulta:
+\begin{BoxVerbatim}
+SELECT cidade FROM clima
+    WHERE temp_min = (SELECT max(temp_min) FROM clima);
+
+    cidade
+ ---------------
+  São Francisco
+  (1 linha)
+\end{BoxVerbatim}
+
+Isto está correto porque a subconsulta é uma ação independente, que calcula sua agregação isoladamente do que está acontecendo na consulta externa.
+
+As agregações também são muito úteis em combinação com a cláusula GROUP BY. Por exemplo, pode ser obtida a maior temperatura mínima observada em cada cidade usando
+\begin{BoxVerbatim}
+SELECT cidade, max(temp_min)
+    FROM clima
+    GROUP BY cidade;
+
+    cidade      | max
+----------------+-----
+Hayward         |  37
+São Francisco   |  46
+(2 linhas)
+\end{BoxVerbatim}
+
+produzindo uma linha de saída para cada cidade. Cada resultado da agregação é computado sobre as linhas da tabela correspondendo a uma cidade. As linhas agrupadas podem ser filtradas utilizando a cláusula HAVING
+\begin{BoxVerbatim}
+SELECT cidade, max(temp_min)
+    FROM clima
+    GROUP BY cidade
+    HAVING max(temp_min) < 40;
+
+
+  cidade   | max
+-----------+-----
+ Hayward   |  37
+(1 linha)
+\end{BoxVerbatim}
+
+que mostra os mesmos resultados, mas apenas para as cidades que possuem os valores de max(temp\_min) abaixo de 40. Para concluir, se desejarmos somente as cidades com nome começando pela letra "S" podemos escrever:
+\begin{BoxVerbatim}
+SELECT cidade, max(temp_min)
+    FROM clima
+    WHERE cidade LIKE 'S%'(1)
+    GROUP BY cidade
+    HAVING max(temp_min) < 40;
+\end{BoxVerbatim}
+
+\section{Atualizações}\setcounter{SteP}{1}
+As linhas existentes podem ser atualizadas utilizando o comando UPDATE. Suponha ter sido descoberto que as leituras de temperatura realizadas após 28 de novembro de 1994 estão todas 2 graus mais altas. Os dados podem ser atualizados da seguinte maneira:
+
+\begin{BoxVerbatim}
+UPDATE clima
+    SET temp_max = temp_max - 2,  temp_min = temp_min - 2
+    WHERE data > '1994-11-28';
+\end{BoxVerbatim}
+
+Agora vejamos o novo estado dos dados:
+\begin{BoxVerbatim}
+SELECT * FROM clima;
+
+     cidade      | temp_min | temp_max | prcp |    data
+-----------------+----------+----------+------+------------
+ São Francisco   |       46 |       50 | 0.25 | 1994-11-27
+ São Francisco   |       41 |       55 |    0 | 1994-11-29
+ Hayward         |       35 |       52 |      | 1994-11-29
+(3 linhas)
+\end{BoxVerbatim}
+
+\section{Exclusões}\setcounter{SteP}{1}
+As linhas podem ser excluídas da tabela através do comando DELETE. Suponha que não estamos mais interessados no clima de Hayward. Então podemos executar comando a seguir para excluir estas linhas da tabela
+
+\begin{BoxVerbatim}
+DELETE FROM clima WHERE cidade = 'Hayward';
+\end{BoxVerbatim}
+
+e todos os registros de clima pertencentes a Hayward serão removidos. Agora vejamos o novo estado dos dados:
+\begin{BoxVerbatim}
+SELECT * FROM clima;
+
+   cidade     | temp_min | temp_max | prcp |    data
+--------------+----------+----------+------+------------
+São Francisco |       46 |       50 | 0.25 | 1994-11-27
+São Francisco |       41 |       55 |    0 | 1994-11-29
+(2 linhas)
+\end{BoxVerbatim}
+
+Deve-se tomar cuidado com comandos na forma
+\begin{BoxVerbatim}
+DELETE FROM nome_da_tabela;
+\end{BoxVerbatim}
+
+porque, sem uma qualificação, o comando DELETE remove todas as linhas da tabela, deixando-a vazia. O sistema não solicita confirmação antes de realizar esta operação!

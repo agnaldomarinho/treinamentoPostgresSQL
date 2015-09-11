@@ -24,4 +24,6 @@
 \contentsline {section}{\numberline {5.5}Consultar tabelas}{14}{section.5.5}
 \contentsline {section}{\numberline {5.6}Junc\IeC {\~o}es entre tabelas}{16}{section.5.6}
 \contentsline {section}{\numberline {5.7} Fun\IeC {\c c}\IeC {\~o}es de agrega\IeC {\c c}\IeC {\~a}o }{18}{section.5.7}
-\contentsline {chapter}{\numberline {A}Licen\IeC {\c c}a}{19}{appendix.A}
+\contentsline {section}{\numberline {5.8}Atualiza\IeC {\c c}\IeC {\~o}es}{19}{section.5.8}
+\contentsline {section}{\numberline {5.9}Exclus\IeC {\~o}es}{20}{section.5.9}
+\contentsline {chapter}{\numberline {A}Licen\IeC {\c c}a}{21}{appendix.A}
